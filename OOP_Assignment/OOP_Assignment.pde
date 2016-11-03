@@ -140,7 +140,9 @@ void display_clock()
   
   strokeWeight(22);
   stroke(51,51,51);                               
+  arc(position_x, position_y, image_width+80, image_height+80, 0, 360); 
   stroke(80,132,145);
+  arc(position_x, position_y, image_width+80, image_height+80, (PI * 3)/2, map_h + (PI * 3)/2);
   
   textSize(20);
   text(h+":"+m+":"+s, 315, 355);
