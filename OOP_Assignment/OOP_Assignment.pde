@@ -16,7 +16,9 @@
 
 void setup()
 {
-  size(700,700);  // The size to be changed
+  size(700,700);  // The size to be change
+  image_width= width * 0.2f; 
+  image_height= height * 0.2f;
   game_state(0);
   frameRate(60);
   smooth();
@@ -27,12 +29,13 @@ void setup()
 float direction = PI; // Leave this here for now. Has to be added to display_clock
 float x=255,y=100,z=140; // The colors from fill_clock and display_clock
 int condition=0;  // Variable used for the color of the loading screen. Leave it like this
-  
+float image_width; 
+float image_height;
   
 void draw()
 {
   
-  display_loading();
+  display_clock();
 }
 
 void game_state(int a)
@@ -46,7 +49,7 @@ void game_state(int a)
     }
     case 1:
     {
-      
+      display_loading();    // The loading screen
       break;
     }
     case 2:
@@ -64,8 +67,6 @@ void game_state(int a)
 void display_loading()
 {
   // Vars
-  float clock_width= width * 0.2f; 
-  float clock_height= height * 0.2f;
   int position_x = 350;
   int position_y =350;
   
@@ -79,10 +80,10 @@ void display_loading()
   fill_loading();
   stroke(x, y, z);        // another test here
   
-  arc(position_x, position_y, clock_width, clock_height, -direction- PI, -direction);
-  arc(position_x, position_y, clock_width+20, clock_height+20, direction, direction+ PI );      
-  arc(position_x, position_y, clock_width+40, clock_height+40, direction-PI, direction );
-  arc(position_x,position_y, clock_width+60, clock_height+60, -direction, -direction + PI);     
+  arc(position_x, position_y, image_width, image_height, -direction- PI, -direction);
+  arc(position_x, position_y, image_width+20, image_height+20, direction, direction+ PI );      
+  arc(position_x, position_y, image_width+40, image_height+40, direction-PI, direction );
+  arc(position_x,position_y, image_width+60, image_height+60, -direction, -direction + PI);     
   direction+=0.05; 
   
   fill(150,205,205);
@@ -107,5 +108,32 @@ void fill_loading()   // From pink to purple
    {
      if (x > 253) condition=0;
    }
+  
+}
+
+void display_clock()
+{
+  int h= hour();      // 0-23
+  int m= minute();    // 0-59
+  int s= second();    // 0-59
+  float map_h,map_m,map_s;
+  
+  background(0);
+  noFill();
+  strokeWeight(20);
+  
+  stroke(60,60,60);
+  arc(350, 350, image_width-20, image_height-20, 0, 360);
+  arc(350, 350, image_width+27, image_height+27, 0, 360);
+  arc(350, 350, image_width+80, image_height+80, 0, 360);
+  
+  map_h= map(h,0,23,0, PI * 2);
+  map_m=map(m,0,59,0 ,PI*2);
+  map_s=map(s, 0, 59, 0, PI * 2);
+  stroke(0,255,255);                                
+  arc(350, 350, image_width-20, image_height-20, (PI * 3)/2, map_s + (PI * 3)/2);
+  arc(350, 350, image_width+27, image_height+27, (PI * 3)/2, map_m + (PI * 3)/2);
+  arc(350, 350, image_width+80, image_height+80, (PI * 3)/2, map_h + (PI * 3)/2);
+  
   
 }
