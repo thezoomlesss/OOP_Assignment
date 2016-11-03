@@ -117,23 +117,31 @@ void display_clock()
   int m= minute();    // 0-59
   int s= second();    // 0-59
   float map_h,map_m,map_s;
+  int position_x=350, position_y=350;
   
   background(0);
   noFill();
-  strokeWeight(20);
-  
-  stroke(60,60,60);
-  arc(350, 350, image_width-20, image_height-20, 0, 360);
-  arc(350, 350, image_width+27, image_height+27, 0, 360);
-  arc(350, 350, image_width+80, image_height+80, 0, 360);
   
   map_h= map(h,0,23,0, PI * 2);
   map_m=map(m,0,59,0 ,PI*2);
   map_s=map(s, 0, 59, 0, PI * 2);
-  stroke(0,255,255);                                
-  arc(350, 350, image_width-20, image_height-20, (PI * 3)/2, map_s + (PI * 3)/2);
-  arc(350, 350, image_width+27, image_height+27, (PI * 3)/2, map_m + (PI * 3)/2);
-  arc(350, 350, image_width+80, image_height+80, (PI * 3)/2, map_h + (PI * 3)/2);
   
+  strokeWeight(12);
+  stroke(51,51,51);                                
+  arc(position_x, position_y, image_width-20, image_height-20, 0, 360);
+  stroke(193,242,255);
+  arc(position_x, position_y, image_width-20, image_height-20, (PI * 3)/2, map_s + (PI * 3)/2);  
   
+  strokeWeight(19);
+  stroke(51,51,51);
+  arc(position_x, position_y, image_width+27, image_height+27, 0, 360);                                
+  stroke(144,206,221);
+  arc(position_x, position_y, image_width+27, image_height+27, (PI * 3)/2, map_m + (PI * 3)/2);  // The blue filling of the bars
+  
+  strokeWeight(22);
+  stroke(51,51,51);                               
+  stroke(80,132,145);
+  
+  textSize(20);
+  text(h+":"+m+":"+s, 315, 355);
 }
