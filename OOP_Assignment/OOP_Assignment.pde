@@ -9,7 +9,7 @@
         - Animation between swapping the screens
         - Make everything modular
         - Continous functions 
-
+        -  Loading animation    DONE
 
 */
 
@@ -25,12 +25,14 @@ void setup()
 
 // Global declaration area
 float direction = PI; // Leave this here for now. Has to be added to display_clock
-float x=0,y=255,z=255; // The colors from fill_clock and display_clock
-    
+float x=255,y=100,z=140; // The colors from fill_clock and display_clock
+int condition=0;  // Variable used for the color of the loading screen. Leave it like this
+  
+  
 void draw()
 {
   
-  display_clock();
+  display_loading();
 }
 
 void game_state(int a)
@@ -59,11 +61,13 @@ void game_state(int a)
   }
 }
 
-void display_clock()
+void display_loading()
 {
   // Vars
   float clock_width= width * 0.2f; 
   float clock_height= height * 0.2f;
+  int position_x = 350;
+  int position_y =350;
   
  
   
@@ -72,46 +76,36 @@ void display_clock()
   strokeWeight(5);
   background(0);   // This might need to be removed 
   
-  fill_clock();
+  fill_loading();
   stroke(x, y, z);        // another test here
   
-  arc(350,350, clock_width, clock_height, -direction- PI, -direction);
-  arc(350,350, clock_width+20, clock_height+20, direction, direction+ PI );      
-  arc(350,350, clock_width+40, clock_height+40, direction-PI, direction );
-  arc(350,350, clock_width+60, clock_height+60, -direction, -direction + PI);     
+  arc(position_x, position_y, clock_width, clock_height, -direction- PI, -direction);
+  arc(position_x, position_y, clock_width+20, clock_height+20, direction, direction+ PI );      
+  arc(position_x, position_y, clock_width+40, clock_height+40, direction-PI, direction );
+  arc(position_x,position_y, clock_width+60, clock_height+60, -direction, -direction + PI);     
   direction+=0.05; 
   
+  fill(150,205,205);
+  textSize(30);
+  text("Loading", position_x-60, position_y);
 }
 
-void fill_clock()   // Needs to feel a bit nicer
+void fill_loading()   // From pink to purple
 {
   
+   if( x > 0 && condition==0  )
+   {
+     x--;
+     if(x<2) condition=1;
+   }
+   
+   if( x<255 && condition==1)
+   {
+     x++;
+   }
+   else
+   {
+     if (x > 253) condition=0;
+   }
   
-  if(z > 0)
-  {
-    z--;
-  }
-  else
-  {
-    if(y > 0)
-    {
-      y--;
-      x+=0.2;
-    }
-    else
-    {
-      if( x<255 )
-      {
-        x++;
-        
-      }
-      else
-      {
-        z=y=255;
-        x=0;
-      }
-    }
-  }
-  
-  println(x,y,z);
 }
