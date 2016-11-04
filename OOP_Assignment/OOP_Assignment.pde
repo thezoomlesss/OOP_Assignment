@@ -23,8 +23,8 @@ void setup()
   //size(700,700);  // The size to be change
   fullScreen();
   //background(0);
-  image_width= width * 0.1f; 
-  image_height= width * 0.1f;
+  image_width= width * 0.08f; 
+  image_height= width * 0.08f;
   game_state(0);
   frameRate(60);
   smooth();
@@ -85,7 +85,7 @@ void display_loading()
   // Settings used for the arcs
   noFill();
   strokeWeight(5);
-  //background(0);   // This might need to be removed 
+  //background(0);
   
   fill_loading();
   stroke(x, y, z);        // another test here
@@ -164,8 +164,8 @@ void display_clock()
     stroke(80,132,145);
     arc(position_x, position_y, image_width+80, image_height+80, (PI * 3)/2, map_h + (PI * 3)/2);
     
-    textSize(20);
-    text(h_disp+":" + m_disp + ":" + s_disp, position_x-45, position_y+10);
+    textSize(14);
+    text(h_disp+":" + m_disp + ":" + s_disp, position_x-30, position_y+10);
      
    
 }
