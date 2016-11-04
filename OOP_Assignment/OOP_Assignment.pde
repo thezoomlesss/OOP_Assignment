@@ -194,5 +194,20 @@ void border()
   line(2 * x_coord, y_coord, width-10, y_coord);
   line(x_coord, 2 * y_coord, x_coord, height-10);
   bezier(x_coord,2 * y_coord, x_coord, y_coord, x_coord, y_coord ,2 * x_coord, y_coord);
+ 
+ 
+ 
+ 
+ 
+  line(width-2 * x_coord, height-y_coord, 10, height-y_coord);
+  line(width - x_coord, height - 2 * y_coord, width-x_coord, 10);
+  bezier(width-x_coord,height - 2 * y_coord, width-x_coord, height-y_coord, width-x_coord, height-y_coord,width-2 * x_coord, height-y_coord);
+  
+  x_coord += 5;
+  y_coord += 5;
+  line(width-2 * x_coord, height-y_coord, 10, height-y_coord);
+  line(width-x_coord, height-2 * y_coord, width - x_coord, 10);
+  bezier(width-x_coord,height-2 * y_coord, width- x_coord, height-y_coord, width-x_coord, height-y_coord ,width-2 * x_coord, height-y_coord);
+
   
 }
