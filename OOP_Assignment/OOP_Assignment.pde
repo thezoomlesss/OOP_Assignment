@@ -22,11 +22,13 @@ void setup()
 {
   //size(700,700);  // The size to be change
   fullScreen();
+  //background(0);
   image_width= width * 0.1f; 
   image_height= width * 0.1f;
   game_state(0);
   frameRate(60);
   smooth();
+  
 }
 
 
@@ -39,7 +41,9 @@ float image_height;
   
 void draw()
 {
-  
+    
+  display_clock();
+    
 }
 
 void game_state(int a)
@@ -48,7 +52,7 @@ void game_state(int a)
   {
     case 0:
     {
-      background(0);    // The welcome screen
+      //background(0);    // The welcome screen
       break;
     }
     case 1: // The loading screen
@@ -59,7 +63,7 @@ void game_state(int a)
     }
     case 2:     // The main menu
     {
-      display_clock();
+      //display_clock();
   
       break;
     }
@@ -72,7 +76,7 @@ void game_state(int a)
 
 void display_loading()
 {
-  // Vars
+  // Variables
   float position_x = 350;// width * 0.4;
   float position_y = 350;//height * 0.4;   // remember to test this
   
@@ -81,7 +85,7 @@ void display_loading()
   // Settings used for the arcs
   noFill();
   strokeWeight(5);
-  background(0);   // This might need to be removed 
+  //background(0);   // This might need to be removed 
   
   fill_loading();
   stroke(x, y, z);        // another test here
@@ -119,50 +123,76 @@ void fill_loading()   // From pink to purple
 
 void display_clock()
 {
-  int h= hour();      // 0-23
-  int m= minute();    // 0-59
-  int s= second();    // 0-59
-  float map_h,map_m,map_s;
-  float position_x= width * 0.9;
-  float position_y= height * 0.83;
-  String h_disp= nf(h,2);
-  String m_disp= nf(m,2);
-  String s_disp= nf(s,2);  
+  background(0); 
+  border();
   
-  background(0);
-  noFill();
-  
-  map_h= map(h,0,23,0, PI * 2);
-  map_m=map(m,0,59,0 ,PI*2);
-  map_s=map(s, 0, 59, 0, PI * 2);
-  
-  // The second's base and meter
-  strokeWeight(12);
-  stroke(51,51,51);                                
-  arc(position_x, position_y, image_width-20, image_height-20, 0, 360);
-  stroke(193,242,255);
-  arc(position_x, position_y, image_width-20, image_height-20, (PI * 3)/2, map_s + (PI * 3)/2);  
-  
-  // The minute's base and meter
-  strokeWeight(19);
-  stroke(51,51,51);
-  arc(position_x, position_y, image_width+27, image_height+27, 0, 360);                                
-  stroke(144,206,221);
-  arc(position_x, position_y, image_width+27, image_height+27, (PI * 3)/2, map_m + (PI * 3)/2);  // The blue filling of the bars
-  
-  // The hour's base and meter
-  strokeWeight(22);
-  stroke(51,51,51);                               
-  arc(position_x, position_y, image_width+80, image_height+80, 0, 360); 
-  stroke(80,132,145);
-  arc(position_x, position_y, image_width+80, image_height+80, (PI * 3)/2, map_h + (PI * 3)/2);
-  
-  textSize(20);
-  text(h_disp+":" + m_disp + ":" + s_disp, position_x-45, position_y+10);
+    int h= hour();      // 0-23
+    int m= minute();    // 0-59
+    int s= second();    // 0-59
+    float map_h,map_m,map_s;
+    float position_x= width * 0.9;
+    float position_y= height * 0.83;
+    String h_disp= nf(h,2);
+    String m_disp= nf(m,2);
+    String s_disp= nf(s,2);  
+    
+    
+    noFill();
+    
+    map_h= map(h,0,23,0, PI * 2);
+    map_m=map(m,0,59,0 ,PI*2);
+    map_s=map(s, 0, 59, 0, PI * 2);
+    
+    // The second's base and meter
+    strokeWeight(12);
+    stroke(51,51,51);                                
+    arc(position_x, position_y, image_width-20, image_height-20, 0, 360);
+    stroke(193,242,255);
+    arc(position_x, position_y, image_width-20, image_height-20, (PI * 3)/2, map_s + (PI * 3)/2);  
+    
+    // The minute's base and meter
+    strokeWeight(19);
+    stroke(51,51,51);
+    arc(position_x, position_y, image_width+27, image_height+27, 0, 360);                                
+    stroke(144,206,221);
+    arc(position_x, position_y, image_width+27, image_height+27, (PI * 3)/2, map_m + (PI * 3)/2);  // The blue filling of the bars
+    
+    // The hour's base and meter
+    strokeWeight(22);
+    stroke(51,51,51);                               
+    arc(position_x, position_y, image_width+80, image_height+80, 0, 360); 
+    stroke(80,132,145);
+    arc(position_x, position_y, image_width+80, image_height+80, (PI * 3)/2, map_h + (PI * 3)/2);
+    
+    textSize(20);
+    text(h_disp+":" + m_disp + ":" + s_disp, position_x-45, position_y+10);
+     
    
 }
 
 void border()
 {
+  int x_coord=10, y_coord=10;
+  
+  int from=color(0,255,0);
+  int to= color(0,0,255);
+  float color_used;
+  
+  color_used=lerpColor(from, to, 0.5);
+  stroke(25,45,90);    // Do something with the lerp
+  println(color_used);
+  
+  
+  strokeWeight(2);
+  noFill();
+  line(2 * x_coord, y_coord, width-10, y_coord);
+  line(x_coord, 2 * y_coord, x_coord, height-10);
+  bezier(x_coord,2 * y_coord, x_coord, y_coord, x_coord, y_coord,2 * x_coord, y_coord);
+  
+  x_coord += 5;
+  y_coord += 5;
+  line(2 * x_coord, y_coord, width-10, y_coord);
+  line(x_coord, 2 * y_coord, x_coord, height-10);
+  bezier(x_coord,2 * y_coord, x_coord, y_coord, x_coord, y_coord ,2 * x_coord, y_coord);
   
 }
