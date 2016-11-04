@@ -9,16 +9,21 @@
         - Animation between swapping the screens
         - Make everything modular
         - Continous functions 
-        -  Loading animation    DONE
+        - Loading animation    DONE
+        - Add border
+        - Add classes for weapons
+        - Add classes for armors
+        - Add a change color setting
 
 */
 
 
 void setup()
 {
-  size(700,700);  // The size to be change
-  image_width= width * 0.2f; 
-  image_height= height * 0.2f;
+  //size(700,700);  // The size to be change
+  fullScreen();
+  image_width= width * 0.1f; 
+  image_height= width * 0.1f;
   game_state(0);
   frameRate(60);
   smooth();
@@ -26,16 +31,15 @@ void setup()
 
 
 // Global declaration area
-float direction = PI; // Leave this here for now. Has to be added to display_clock
-float x=255,y=100,z=140; // The colors from fill_clock and display_clock
-int condition=0;  // Variable used for the color of the loading screen. Leave it like this
+float direction = PI;   // Leave this here for now. Has to be added to display_clock
+float x=255,y=100,z=140;  // The colors from fill_clock and display_clock
+int condition=0;     // Variable used for the color of the loading screen. Leave it like this
 float image_width; 
 float image_height;
   
 void draw()
 {
   
-  display_clock();
 }
 
 void game_state(int a)
@@ -44,17 +48,19 @@ void game_state(int a)
   {
     case 0:
     {
-      background(0);          // This should be the first screen
+      background(0);    // The welcome screen
       break;
     }
-    case 1:
+    case 1: // The loading screen
     {
-      display_loading();    // The loading screen
+      display_loading();
+  
       break;
     }
-    case 2:
+    case 2:     // The main menu
     {
-      
+      display_clock();
+  
       break;
     }
     default:
@@ -67,8 +73,8 @@ void game_state(int a)
 void display_loading()
 {
   // Vars
-  int position_x = 350;
-  int position_y =350;
+  float position_x = 350;// width * 0.4;
+  float position_y = 350;//height * 0.4;   // remember to test this
   
  
   
@@ -117,7 +123,11 @@ void display_clock()
   int m= minute();    // 0-59
   int s= second();    // 0-59
   float map_h,map_m,map_s;
-  int position_x=350, position_y=350;
+  float position_x= width * 0.9;
+  float position_y= height * 0.83;
+  String h_disp= nf(h,2);
+  String m_disp= nf(m,2);
+  String s_disp= nf(s,2);  
   
   background(0);
   noFill();
@@ -126,18 +136,21 @@ void display_clock()
   map_m=map(m,0,59,0 ,PI*2);
   map_s=map(s, 0, 59, 0, PI * 2);
   
+  // The second's base and meter
   strokeWeight(12);
   stroke(51,51,51);                                
   arc(position_x, position_y, image_width-20, image_height-20, 0, 360);
   stroke(193,242,255);
   arc(position_x, position_y, image_width-20, image_height-20, (PI * 3)/2, map_s + (PI * 3)/2);  
   
+  // The minute's base and meter
   strokeWeight(19);
   stroke(51,51,51);
   arc(position_x, position_y, image_width+27, image_height+27, 0, 360);                                
   stroke(144,206,221);
   arc(position_x, position_y, image_width+27, image_height+27, (PI * 3)/2, map_m + (PI * 3)/2);  // The blue filling of the bars
   
+  // The hour's base and meter
   strokeWeight(22);
   stroke(51,51,51);                               
   arc(position_x, position_y, image_width+80, image_height+80, 0, 360); 
@@ -145,5 +158,11 @@ void display_clock()
   arc(position_x, position_y, image_width+80, image_height+80, (PI * 3)/2, map_h + (PI * 3)/2);
   
   textSize(20);
-  text(h+":"+m+":"+s, 315, 355);
+  text(h_disp+":" + m_disp + ":" + s_disp, position_x-45, position_y+10);
+   
+}
+
+void border()
+{
+  
 }
