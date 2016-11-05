@@ -123,7 +123,8 @@ void fill_loading()   // From pink to purple
 
 void display_clock()
 {
-  background(0); 
+  background(60,40,40); 
+  
   border();
   
     int h= hour();      // 0-23
@@ -188,25 +189,20 @@ void border()
   noFill();
   
   line( 2 * x_coord, y_coord, width -   x_coord_copy , y_coord); // top outer line
-  line(x_coord, 2 * y_coord, x_coord, height - 2 * y_coord_copy); // left outer
-  
+  line(x_coord, 2 * y_coord, x_coord, height - 2 * y_coord_copy); // left outer  
   line( 2 * x_coord, y_coord_copy, width - 2 * x_coord_copy , y_coord_copy); // top inner
   line(x_coord_copy, 2 * y_coord_copy, x_coord_copy, height- 2 * y_coord_copy); // left inner
-  bezier(x_coord,2 * y_coord, x_coord, y_coord, x_coord, y_coord ,2 * x_coord, y_coord); // top left outer bezier
-  bezier(x_coord_copy,2 * y_coord_copy, x_coord_copy, y_coord_copy, x_coord_copy, y_coord_copy ,2 * x_coord_copy, y_coord_copy); // top left inner bezier
- 
- 
-  line(width -2 * x_coord, height-y_coord, 2 * x_coord_copy, height-y_coord);  // bottom outer
-  line(width - x_coord, height - 2 * y_coord, width- x_coord,  y_coord_copy); // right outer 
-  bezier(width-x_coord,height - 2 * y_coord, width-x_coord, height-y_coord, width-x_coord, height-y_coord,width-2 * x_coord, height-y_coord); // bottom right outer bezier
-  
-  bezier(width -  2*x_coord,  y_coord, width-x_coord,  y_coord, width-x_coord,  y_coord, width - x_coord,  2*y_coord); // top right outer bezier
-  bezier(width -  2*x_coord_copy,  y_coord_copy, width-x_coord_copy,  y_coord_copy, width-x_coord_copy,  y_coord_copy, width - x_coord_copy,  2*y_coord_copy); // top right inner bezier
-  
   line(width-2 * x_coord_copy, height-y_coord_copy, 2*x_coord_copy, height-y_coord_copy);  //bottom inner
   line(width-x_coord_copy, height-2 * y_coord_copy, width - x_coord_copy, 2*y_coord_copy); // right inner
-  bezier(width-x_coord_copy,height-2 * y_coord_copy, width- x_coord_copy, height-y_coord_copy, width-x_coord_copy, height-y_coord_copy ,width-2 * x_coord_copy, height-y_coord_copy); // bottom right inner bezier
+  line(width -2 * x_coord, height-y_coord, 2 * x_coord_copy, height-y_coord);  // bottom outer
+  line(width - x_coord, height - 2 * y_coord, width- x_coord,  y_coord_copy); // right outer 
   
+  bezier(width-x_coord,height - 2 * y_coord, width-x_coord, height-y_coord, width-x_coord, height-y_coord,width-2 * x_coord, height-y_coord); // bottom right outer bezier
+  bezier(x_coord_copy,2 * y_coord_copy, x_coord_copy, y_coord_copy, x_coord_copy, y_coord_copy ,2 * x_coord_copy, y_coord_copy); // top left inner bezier
+  bezier(x_coord,2 * y_coord, x_coord, y_coord, x_coord, y_coord ,2 * x_coord, y_coord); // top left outer bezier
+  bezier(width -  2*x_coord,  y_coord, width-x_coord,  y_coord, width-x_coord,  y_coord, width - x_coord,  2*y_coord); // top right outer bezier
+  bezier(width -  2*x_coord_copy,  y_coord_copy, width-x_coord_copy,  y_coord_copy, width-x_coord_copy,  y_coord_copy, width - x_coord_copy,  2*y_coord_copy); // top right inner bezier
+  bezier(width-x_coord_copy,height-2 * y_coord_copy, width- x_coord_copy, height-y_coord_copy, width-x_coord_copy, height-y_coord_copy ,width-2 * x_coord_copy, height-y_coord_copy); // bottom right inner bezier
   bezier(2*x_coord_copy,  height-y_coord, x_coord,  height-y_coord, x_coord,  height-y_coord, x_coord,  height-2*y_coord_copy); // bottom left outer bezier
   bezier(2*x_coord_copy,  height-y_coord_copy, x_coord_copy,  height-y_coord_copy, x_coord_copy,  height-y_coord_copy, x_coord_copy,  height-2*y_coord_copy); // bottom left inner bezier
    
