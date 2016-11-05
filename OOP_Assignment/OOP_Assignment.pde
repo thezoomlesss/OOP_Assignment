@@ -139,7 +139,7 @@ void display_clock()
     
     noFill();
     
-    map_h= map(h,0,23,0, PI * 2);
+    map_h= map(h,0,23,0, PI * 2);   // Not looking like a proper clock
     map_m=map(m,0,59,0 ,PI*2);
     map_s=map(s, 0, 59, 0, PI * 2);
     
@@ -173,6 +173,7 @@ void display_clock()
 void border()
 {
   int x_coord=10, y_coord=10;
+  int x_coord_copy=x_coord+5, y_coord_copy=y_coord+5;
   
   int from=color(0,255,0);
   int to= color(0,0,255);
@@ -185,29 +186,28 @@ void border()
   
   strokeWeight(2);
   noFill();
-  line(2 * x_coord, y_coord, width-10, y_coord);
-  line(x_coord, 2 * y_coord, x_coord, height-10);
-  bezier(x_coord,2 * y_coord, x_coord, y_coord, x_coord, y_coord,2 * x_coord, y_coord);
   
-  x_coord += 5;
-  y_coord += 5;
-  line(2 * x_coord, y_coord, width-10, y_coord);
-  line(x_coord, 2 * y_coord, x_coord, height-10);
-  bezier(x_coord,2 * y_coord, x_coord, y_coord, x_coord, y_coord ,2 * x_coord, y_coord);
- 
- 
- 
- 
- 
-  line(width-2 * x_coord, height-y_coord, 10, height-y_coord);
-  line(width - x_coord, height - 2 * y_coord, width-x_coord, 10);
-  bezier(width-x_coord,height - 2 * y_coord, width-x_coord, height-y_coord, width-x_coord, height-y_coord,width-2 * x_coord, height-y_coord);
+  line( 2 * x_coord, y_coord, width -   x_coord_copy , y_coord); // top outer line
+  line(x_coord, 2 * y_coord, x_coord, height - 2 * y_coord_copy); // left outer
   
-  x_coord += 5;
-  y_coord += 5;
-  line(width-2 * x_coord, height-y_coord, 10, height-y_coord);
-  line(width-x_coord, height-2 * y_coord, width - x_coord, 10);
-  bezier(width-x_coord,height-2 * y_coord, width- x_coord, height-y_coord, width-x_coord, height-y_coord ,width-2 * x_coord, height-y_coord);
-
+  line( 2 * x_coord, y_coord_copy, width - 2 * x_coord_copy , y_coord_copy); // top inner
+  line(x_coord_copy, 2 * y_coord_copy, x_coord_copy, height- 2 * y_coord_copy); // left inner
+  bezier(x_coord,2 * y_coord, x_coord, y_coord, x_coord, y_coord ,2 * x_coord, y_coord); // top left outer bezier
+  bezier(x_coord_copy,2 * y_coord_copy, x_coord_copy, y_coord_copy, x_coord_copy, y_coord_copy ,2 * x_coord_copy, y_coord_copy); // top left inner bezier
+ 
+ 
+  line(width -2 * x_coord, height-y_coord, 2 * x_coord_copy, height-y_coord);  // bottom outer
+  line(width - x_coord, height - 2 * y_coord, width- x_coord,  y_coord_copy); // right outer 
+  bezier(width-x_coord,height - 2 * y_coord, width-x_coord, height-y_coord, width-x_coord, height-y_coord,width-2 * x_coord, height-y_coord); // bottom right outer bezier
   
+  bezier(width -  2*x_coord,  y_coord, width-x_coord,  y_coord, width-x_coord,  y_coord, width - x_coord,  2*y_coord); // top right outer bezier
+  bezier(width -  2*x_coord_copy,  y_coord_copy, width-x_coord_copy,  y_coord_copy, width-x_coord_copy,  y_coord_copy, width - x_coord_copy,  2*y_coord_copy); // top right inner bezier
+  
+  line(width-2 * x_coord_copy, height-y_coord_copy, 2*x_coord_copy, height-y_coord_copy);  //bottom inner
+  line(width-x_coord_copy, height-2 * y_coord_copy, width - x_coord_copy, 2*y_coord_copy); // right inner
+  bezier(width-x_coord_copy,height-2 * y_coord_copy, width- x_coord_copy, height-y_coord_copy, width-x_coord_copy, height-y_coord_copy ,width-2 * x_coord_copy, height-y_coord_copy); // bottom right inner bezier
+  
+  bezier(2*x_coord_copy,  height-y_coord, x_coord,  height-y_coord, x_coord,  height-y_coord, x_coord,  height-2*y_coord_copy); // bottom left outer bezier
+  bezier(2*x_coord_copy,  height-y_coord_copy, x_coord_copy,  height-y_coord_copy, x_coord_copy,  height-y_coord_copy, x_coord_copy,  height-2*y_coord_copy); // bottom left inner bezier
+   
 }
