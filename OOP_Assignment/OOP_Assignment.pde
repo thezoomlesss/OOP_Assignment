@@ -38,6 +38,9 @@ float x=255,y=100,z=140;  // The colors from fill_clock and display_clock
 int condition=0;     // Variable used for the color of the loading screen. Leave it like this
 float image_width; 
 float image_height;
+int x_coord=10, y_coord=10;
+int x_coord_copy=x_coord+5, y_coord_copy=y_coord+5; 
+  
   
 void draw()
 {
@@ -127,9 +130,9 @@ void display_clock()
   
   border();
   
-    int h= hour();      // 0-23
-    int m= minute();    // 0-59
-    int s= second();    // 0-59
+    int h= hour();        // 0-23
+    int m= minute();      // 0-59
+    int s= second();      // 0-59
     float map_h,map_m,map_s;
     float position_x= width * 0.9;
     float position_y= height * 0.83;
@@ -140,7 +143,13 @@ void display_clock()
     
     noFill();
     
-    map_h= map(h,0,23,0, PI * 2);   // Not looking like a proper clock
+    if( h > 11)
+    {
+      h-=10;
+    }
+    println(h);
+    
+    map_h=map(h,0,14,0, PI * 2);   // Not looking like a proper clock
     map_m=map(m,0,59,0 ,PI*2);
     map_s=map(s, 0, 59, 0, PI * 2);
     
@@ -173,18 +182,15 @@ void display_clock()
 
 void border()
 {
-  int x_coord=10, y_coord=10;
-  int x_coord_copy=x_coord+5, y_coord_copy=y_coord+5;
-  
   int from=color(0,255,0);
   int to= color(0,0,255);
   float color_used;
   
   color_used=lerpColor(from, to, 0.5);
-  stroke(25,45,90);    // Do something with the lerp
-  println(color_used);
+  //println(color_used);
   
-  
+  little_back();
+  stroke(25,45,90);    
   strokeWeight(2);
   noFill();
   
@@ -206,4 +212,12 @@ void border()
   bezier(2*x_coord_copy,  height-y_coord, x_coord,  height-y_coord, x_coord,  height-y_coord, x_coord,  height-2*y_coord_copy); // bottom left outer bezier
   bezier(2*x_coord_copy,  height-y_coord_copy, x_coord_copy,  height-y_coord_copy, x_coord_copy,  height-y_coord_copy, x_coord_copy,  height-2*y_coord_copy); // bottom left inner bezier
    
+}
+
+void little_back()
+{
+  fill(0);
+  stroke(0);
+  strokeWeight(1);
+  rect(x_coord, y_coord, width-2*x_coord, height-2*y_coord);
 }
