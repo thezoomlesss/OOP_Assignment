@@ -21,6 +21,7 @@
 void setup()
 {
   //size(700,700);  // The size to be change
+  
   fullScreen();
   //background(0);
   image_width= width * 0.08f; 
@@ -83,12 +84,12 @@ void display_loading()
   float position_x = 350;// width * 0.4;
   float position_y = 350;//height * 0.4;   // remember to test this
   
- 
+  border();
   
   // Settings used for the arcs
   noFill();
   strokeWeight(5);
-  //background(0);
+  background(0);
   
   fill_loading();
   stroke(x, y, z);        // another test here
@@ -100,8 +101,8 @@ void display_loading()
   direction+=0.05; 
   
   fill(150,205,205);
-  textSize(30);
-  text("Loading", position_x-60, position_y);
+  textSize(20);
+  text("Loading", position_x-42, position_y+2);
 }
 
 void fill_loading()   // From pink to purple
@@ -126,8 +127,8 @@ void fill_loading()   // From pink to purple
 
 void display_clock()
 {
-  background(60,40,40); 
-  
+  //background(60,40,40); 
+  background(0);
   border();
   
     int h= hour();        // 0-23
@@ -149,16 +150,17 @@ void display_clock()
     }
     println(h);
     
-    map_h=map(h,0,14,0, PI * 2);   // Not looking like a proper clock
+    map_h=map(h,0,12,0, PI * 2);   // Not looking like a proper clock
     map_m=map(m,0,59,0 ,PI*2);
     map_s=map(s, 0, 59, 0, PI * 2);
+    
     
     // The second's base and meter
     strokeWeight(12);
     stroke(51,51,51);                                
     arc(position_x, position_y, image_width-20, image_height-20, 0, 360);
     stroke(193,242,255);
-    arc(position_x, position_y, image_width-20, image_height-20, (PI * 3)/2, map_s + (PI * 3)/2);  
+    arc(position_x, position_y, image_width-20, image_height-20,  (PI * 3)/2, map_s + (PI * 3)/2);  
     
     // The minute's base and meter
     strokeWeight(19);
@@ -175,6 +177,7 @@ void display_clock()
     arc(position_x, position_y, image_width+80, image_height+80, (PI * 3)/2, map_h + (PI * 3)/2);
     
     textSize(14);
+    fill(255);
     text(h_disp+":" + m_disp + ":" + s_disp, position_x-30, position_y+10);
      
    
@@ -182,42 +185,25 @@ void display_clock()
 
 void border()
 {
-  int from=color(0,255,0);
-  int to= color(0,0,255);
-  float color_used;
-  
-  color_used=lerpColor(from, to, 0.5);
-  //println(color_used);
-  
-  little_back();
   stroke(25,45,90);    
   strokeWeight(2);
   noFill();
   
   line( 2 * x_coord, y_coord, width -   x_coord_copy , y_coord); // top outer line
   line(x_coord, 2 * y_coord, x_coord, height - 2 * y_coord_copy); // left outer  
-  line( 2 * x_coord, y_coord_copy, width - 2 * x_coord_copy , y_coord_copy); // top inner
-  line(x_coord_copy, 2 * y_coord_copy, x_coord_copy, height- 2 * y_coord_copy); // left inner
-  line(width-2 * x_coord_copy, height-y_coord_copy, 2*x_coord_copy, height-y_coord_copy);  //bottom inner
-  line(width-x_coord_copy, height-2 * y_coord_copy, width - x_coord_copy, 2*y_coord_copy); // right inner
-  line(width -2 * x_coord, height-y_coord, 2 * x_coord_copy, height-y_coord);  // bottom outer
+  line(width -  2*x_coord, height-y_coord,  x_coord_copy, height-y_coord);  // bottom outer
   line(width - x_coord, height - 2 * y_coord, width- x_coord,  y_coord_copy); // right outer 
   
   bezier(width-x_coord,height - 2 * y_coord, width-x_coord, height-y_coord, width-x_coord, height-y_coord,width-2 * x_coord, height-y_coord); // bottom right outer bezier
-  bezier(x_coord_copy,2 * y_coord_copy, x_coord_copy, y_coord_copy, x_coord_copy, y_coord_copy ,2 * x_coord_copy, y_coord_copy); // top left inner bezier
   bezier(x_coord,2 * y_coord, x_coord, y_coord, x_coord, y_coord ,2 * x_coord, y_coord); // top left outer bezier
   bezier(width -  2*x_coord,  y_coord, width-x_coord,  y_coord, width-x_coord,  y_coord, width - x_coord,  2*y_coord); // top right outer bezier
-  bezier(width -  2*x_coord_copy,  y_coord_copy, width-x_coord_copy,  y_coord_copy, width-x_coord_copy,  y_coord_copy, width - x_coord_copy,  2*y_coord_copy); // top right inner bezier
-  bezier(width-x_coord_copy,height-2 * y_coord_copy, width- x_coord_copy, height-y_coord_copy, width-x_coord_copy, height-y_coord_copy ,width-2 * x_coord_copy, height-y_coord_copy); // bottom right inner bezier
-  bezier(2*x_coord_copy,  height-y_coord, x_coord,  height-y_coord, x_coord,  height-y_coord, x_coord,  height-2*y_coord_copy); // bottom left outer bezier
-  bezier(2*x_coord_copy,  height-y_coord_copy, x_coord_copy,  height-y_coord_copy, x_coord_copy,  height-y_coord_copy, x_coord_copy,  height-2*y_coord_copy); // bottom left inner bezier
-   
-}
-
-void little_back()
-{
-  fill(0);
-  stroke(0);
-  strokeWeight(1);
-  rect(x_coord, y_coord, width-2*x_coord, height-2*y_coord);
-}
+  bezier(x_coord_copy,  height-y_coord, x_coord,  height-y_coord, x_coord,  height-y_coord, x_coord,  height-2*y_coord_copy); // bottom left outer bezier
+  
+  fill(1,2,15);
+  beginShape();
+  vertex(x_coord_copy, y_coord_copy);
+  vertex(width-x_coord_copy, y_coord_copy);
+  vertex(width-x_coord_copy, height-y_coord_copy);
+  vertex(x_coord_copy, height-y_coord_copy);
+  endShape(CLOSE);
+  }
