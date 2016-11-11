@@ -18,9 +18,9 @@ class Clock
       
       
       noFill();
-      if( h > 11)
+      if( h > 12)
       {
-        h-=10;
+        h-=12;
       }
       
       map_h=map(h,0,12,0, PI * 2);   // Not looking like a proper clock

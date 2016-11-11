@@ -14,6 +14,7 @@
         - Add classes for weapons
         - Add classes for armors
         - Add a change color setting
+        - Use lerp for the clock to make it smoother
 
 */
 
@@ -40,7 +41,7 @@ float image_width;
 float image_height;
 int x_coord=10, y_coord=10;
 int x_coord_copy=x_coord+5, y_coord_copy=y_coord+5; 
-int screen=1;
+float direction;
 
 // Object declaration area
 Border display=new Border();
@@ -72,13 +73,21 @@ void game_state(int a)
     }
     case 2:     // The main menu
     {
+      create.display_loading2();
+      break;
+    }
+    case 3:
+    {
       draw.clock();
-  
       break;
     }
     default:
     {
-      // Add an error screen here
+      display.border();
+      fill(255);
+      stroke(255);
+      textSize(20);
+      text("How did you end up here, buddy?", width * 0.38f, height*0.5f);// Add an error screen here
     }
   } // End switch
 }
