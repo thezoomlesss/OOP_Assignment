@@ -49,7 +49,7 @@ Border display=new Border();
 Clock draw= new Clock();  
 Loading paint= new Loading();
 Loading2 create= new Loading2(730, 600); 
-Weapons get=new Weapons(500,250);
+Weapons get=new Weapons(500,200);
 
 void draw()
 {

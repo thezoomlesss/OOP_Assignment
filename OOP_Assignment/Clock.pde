@@ -2,7 +2,6 @@ class Clock
 {
   void clock()
   {
-    //background(60,40,40); 
     background(0);
     display.border();
     get.display_weapon();
