@@ -5,6 +5,7 @@ class Clock
     //background(60,40,40); 
     background(0);
     display.border();
+    get.display_weapon();
     
       int h= hour();        // 0-23
       int m= minute();      // 0-59

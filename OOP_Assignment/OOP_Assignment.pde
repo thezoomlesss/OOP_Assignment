@@ -35,18 +35,21 @@ void setup()
 
 
 // Global declaration area
+float direction;
 float x=255,y=100,z=140;  // The colors from fill_clock and display_clock
 int condition=0;     // Variable used for the color of the loading screen. Leave it like this
 float image_width; 
 float image_height;
 int x_coord=10, y_coord=10;
 int x_coord_copy=x_coord+5, y_coord_copy=y_coord+5; 
-float direction;
+int screen=3;
 
 // Object declaration area
 Border display=new Border();
 Clock draw= new Clock();  
 Loading paint= new Loading();
+Loading2 create= new Loading2(730, 600); 
+Weapons get=new Weapons(500,250);
 
 void draw()
 {

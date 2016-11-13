@@ -31,13 +31,11 @@ class Loading2
      }
      background(0);
      display.border();
-     stroke(255);
+     stroke(25,45,90);
      noFill();
      rect(this.Xg_copy-162, this.Yg_copy-18, size+158, size+18);
-     fill(255);
-     ellipse(this.Xg, this.Yg, size, size);
-     textSize(27);
-     println(this.cond);     
+     fill(25,55,90);
+     textSize(27);     
      switch(this.cond)
      {
        case 1:
@@ -60,6 +58,9 @@ class Loading2
          break;
        }
      }// end switch
+     fill(0,55,55);
+     noStroke();
+     ellipse(this.Xg, this.Yg, size, size);
   }
   
 }// end class
