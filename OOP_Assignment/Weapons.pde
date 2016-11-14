@@ -2,6 +2,10 @@ class Weapons
 {
   float pos_x, pos_y;
   float draw_size=100, corner=110;
+  float box1_x=100, box1_y=50;
+  float box2_x=box1_x * 2 +20;
+  float box3_x= box1_x*3 +40, box3_y= box1_y *3;
+  int size_x=100, size_y=50;
   
   Weapons(float pos_x, float pos_y)
   {
@@ -35,6 +39,17 @@ class Weapons
     vertex(this.pos_x+draw_size, this.pos_y-corner);
     endShape(CLOSE);
     
+    // Name box extension for the box
+    beginShape();
+    
+    curveVertex(this.pos_x-draw_size+30, this.pos_y+draw_size);
+    curveVertex(this.pos_x-draw_size+30, this.pos_y+draw_size+30);
+    curveVertex(this.pos_x-draw_size+30, this.pos_y+draw_size+60);
+    curveVertex(this.pos_x+draw_size-30, this.pos_y+draw_size+60);
+    curveVertex(this.pos_x+draw_size-30, this.pos_y+draw_size+30);
+    curveVertex(this.pos_x+draw_size-30, this.pos_y+draw_size);
+    endShape();
+    
     
     
     if(mouseX>this.pos_x - 140 && mouseX<this.pos_x - 130 && mouseY>this.pos_y-10 && mouseY<this.pos_y+10) 
@@ -49,9 +64,9 @@ class Weapons
     
     // The left arrow
     beginShape();
-    vertex(this.pos_x - 140, this.pos_y);
-    vertex(this.pos_x - 130, this.pos_y-10);
-    vertex(this.pos_x - 130, this.pos_y+10);
+    vertex(this.pos_x - 145, this.pos_y);
+    vertex(this.pos_x - 130, this.pos_y-15);
+    vertex(this.pos_x - 130, this.pos_y+15);
     endShape(CLOSE);
     
     
@@ -66,9 +81,9 @@ class Weapons
     
     // the right arrow
     beginShape();
-    vertex(this.pos_x + 140, this.pos_y);
-    vertex(this.pos_x + 130, this.pos_y-10);
-    vertex(this.pos_x + 130, this.pos_y+10);
+    vertex(this.pos_x + 145, this.pos_y);
+    vertex(this.pos_x + 130, this.pos_y-15);
+    vertex(this.pos_x + 130, this.pos_y+15);
     endShape(CLOSE);
     
     
@@ -91,14 +106,75 @@ class Weapons
     endShape(CLOSE);
    
     // Map button
+    if((mouseX > box1_x) &&  (mouseX< (size_x+box1_x)) && (mouseY> height- (2*box1_y)) && (mouseY< height - box1_y))
+    {
+      fill(200,0,0);  // Change this color
+    }
+    else
+    {
+      fill(1,2,15);
+    }
+    
     beginShape();
-    vertex(100,height-60);
-    vertex(110,height-50);
-    vertex(200,height-50);
-    vertex(200,height-90);
-    vertex(190,height-100);
-    vertex(100, height-100);
+    vertex(box1_x, height- box1_y);
+    vertex(size_x + box1_x,height- box1_y);
+    vertex(size_x + box1_x,height- ((size_y+box1_y-10)));  // top right corner
+    vertex(size_x+ box1_x -10,height- size_y-box1_y);
+    vertex(box1_x+10, height- size_y -box1_y);   // top left corner
+    vertex(box1_x, height- ((size_y + box1_y)-10)); 
     endShape(CLOSE);
+    
+    fill(200,2,15);
+    textSize(20);
+    text("Map",box1_x+ (box1_x *0.3f), height- (box1_y+(box1_y *0.3f)));
+    
+    //Weapons button
+    
+    if((mouseX > box2_x ) &&  (mouseX< (size_x+box2_x) ) && (mouseY> height- (2*box1_y)) && (mouseY< height - box1_y))
+    {
+      fill(200,0,0);  // Change this color
+    }
+    else
+    {
+      fill(1,2,15);
+    }
+    
+    beginShape();
+    vertex(box2_x, height- box1_y);
+    vertex(size_x+box2_x,height- box1_y);
+    vertex(size_x + box2_x,height- ((size_y+box1_y)-10));  // top right corner
+    vertex(size_x + box2_x -10,height- size_y-box1_y);
+    vertex(box2_x+10, height- size_y - box1_y);   // top left corner
+    vertex(box2_x, height- ((size_y +box1_y)-10)); 
+    endShape(CLOSE);
+    
+    fill(200,2,15);
+    textSize(20);
+    text("Weapon",box2_x+ (box2_x *0.06f), height- (box1_y+(box1_y *0.3f)));
+    
+    // Armor button
+    if((mouseX > box3_x ) &&  (mouseX< (size_x +box3_x)) && (mouseY> height- (2*box1_y)) && (mouseY< height - box1_y))
+    {
+      fill(200,0,0);  // Change this color
+    }
+    else
+    {
+      fill(1,2,15);
+    }
+    
+    beginShape();
+    vertex(box3_x, height- box1_y);
+    vertex(size_x+box3_x,height- box1_y);
+    vertex(size_x + box3_x,height- ((size_y+box1_y)-10));  // top right corner
+    vertex(size_x + box3_x -10,height- size_y-box1_y);
+    vertex(box3_x+10, height- size_y - box1_y);   // top left corner
+    vertex(box3_x, height- ((size_y +box1_y)-10)); 
+    endShape(CLOSE);
+    
+    
+    fill(200,2,15);
+    textSize(20);
+    text("Armor",box3_x+ (box3_x *0.06f), height- (box1_y+(box1_y *0.3f)));
     
   }
   

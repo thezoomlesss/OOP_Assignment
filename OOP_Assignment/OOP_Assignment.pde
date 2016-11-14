@@ -71,7 +71,6 @@ void game_state(int a)
     case 1: // The loading screen
     {
       paint.display_loading();
-  
       break;
     }
     case 2:     // The main menu
