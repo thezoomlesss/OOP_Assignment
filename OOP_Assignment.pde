@@ -17,6 +17,7 @@
         - Use lerp for the clock to make it smoother
 
 */
+File f = new File(sketchPath("Test.txt"));
 
 
 void setup()
@@ -24,13 +25,20 @@ void setup()
   //size(700,700);  // The size to be change
   
   fullScreen();
-  //background(0);
+  background(0);
   image_width= width * 0.08f; 
   image_height= width * 0.08f;
   game_state(0);
   frameRate(60);
   smooth();
-  
+  if(f.exists())
+  {
+    println("DA");
+  }
+  else
+  {
+    println("NU");
+  }
 }
 
 
@@ -38,34 +46,34 @@ void setup()
 float direction;
 float x=255,y=100,z=140;  // The colors from fill_clock and display_clock
 int condition=0;     // Variable used for the color of the loading screen. Leave it like this
-float image_width; 
-float image_height;
+float image_width, image_height;
 int x_coord=10, y_coord=10;
 int x_coord_copy=x_coord+5, y_coord_copy=y_coord+5; 
-int screen=3;
+int index=0, screen=0;
+String Profile;
 
 // Object declaration area
 Border display=new Border();
 Clock draw= new Clock();  
 Loading paint= new Loading();
 Loading2 create= new Loading2(730, 600); 
-Weapons get=new Weapons(500,200);
-
+Weapons get=new Weapons(250,250);
+Show_Records table=new Show_Records();
+Profile disp= new Profile();
+  
+  
 void draw()
 {
-  game_state(screen);  
-  //draw.clock();
-  //paint.display_loading();
-    
+  game_state(screen);
 }
 
 void game_state(int a)
 {
   switch(a)
   {
-    case 0:
+    case 0:  // The welcome screen
     {
-      background(0);    // The welcome screen
+      disp.get_name();
       break;
     }
     case 1: // The loading screen
@@ -83,9 +91,15 @@ void game_state(int a)
       draw.clock();
       break;
     }
+    case 4:
+    {
+      table.display();
+      break;
+    }
+    
     default:
     {
-      display.border();
+      display.border(0);
       fill(255);
       stroke(255);
       textSize(20);

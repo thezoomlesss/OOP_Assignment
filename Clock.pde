@@ -3,7 +3,7 @@ class Clock
   void clock()
   {
     background(0);
-    display.border();
+    display.border(1);
     get.display_weapon();
     
       int h= hour();        // 0-23

@@ -1,5 +1,5 @@
 class Loading2
-{
+{ 
   int size=20, cond=2;
   boolean condition2=false;
   float Xg,Yg;
@@ -10,6 +10,7 @@ class Loading2
     this.Xg_copy=this.Xg=Xg;
     this.Yg_copy=this.Yg=Yg;
     this.cond=2;
+    
   }
   
   void display_loading2()
@@ -30,7 +31,7 @@ class Loading2
        if (this.Xg > this.Xg_copy-20) condition2=false;
      }
      background(0);
-     display.border();
+     display.border(0);
      stroke(25,45,90);
      noFill();
      rect(this.Xg_copy-162, this.Yg_copy-18, size+158, size+18);

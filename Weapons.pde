@@ -19,12 +19,12 @@ class Weapons
     fill(100,2,15);
     
     textSize(30);
-    text("Choose a weapon:", 50, 80);
+    text("Choose a loadout:", 50, 80);
     stroke(25,45,90);    
     
     fill(1,2,15);
     
-    // The box for the weapon
+    // The box for the primary weapon
     beginShape();
     vertex(this.pos_x-draw_size, this.pos_y-corner);
     vertex(this.pos_x-corner, this.pos_y-draw_size);
@@ -38,19 +38,6 @@ class Weapons
     vertex(this.pos_x+corner, this.pos_y-draw_size);
     vertex(this.pos_x+draw_size, this.pos_y-corner);
     endShape(CLOSE);
-    
-    // Name box extension for the box
-    beginShape();
-    
-    curveVertex(this.pos_x-draw_size+30, this.pos_y+draw_size);
-    curveVertex(this.pos_x-draw_size+30, this.pos_y+draw_size+30);
-    curveVertex(this.pos_x-draw_size+30, this.pos_y+draw_size+60);
-    curveVertex(this.pos_x+draw_size-30, this.pos_y+draw_size+60);
-    curveVertex(this.pos_x+draw_size-30, this.pos_y+draw_size+30);
-    curveVertex(this.pos_x+draw_size-30, this.pos_y+draw_size);
-    endShape();
-    
-    
     
     if(mouseX>this.pos_x - 140 && mouseX<this.pos_x - 130 && mouseY>this.pos_y-10 && mouseY<this.pos_y+10) 
     {
@@ -86,15 +73,69 @@ class Weapons
     vertex(this.pos_x + 130, this.pos_y+15);
     endShape(CLOSE);
     
+    // The box for the secondary weapon
+    
+    fill(1,2,15);
+    
+    beginShape();
+    vertex(((2.5f*this.pos_x)-draw_size), this.pos_y-corner);
+    vertex(((2.5f*this.pos_x)-corner), this.pos_y-draw_size);
+    
+    vertex(((2.5f*this.pos_x)-corner), this.pos_y+draw_size);
+    vertex(((2.5f*this.pos_x)-draw_size), this.pos_y+corner);
+    
+    vertex(((2.5f*this.pos_x)+draw_size), this.pos_y+corner);
+    vertex(((2.5f*this.pos_x)+corner), this.pos_y+draw_size);
+    
+    vertex(((2.5f*this.pos_x)+corner), this.pos_y-draw_size);
+    vertex(((2.5f*this.pos_x)+draw_size), this.pos_y-corner);
+    endShape(CLOSE);
+    
+    
+    if(mouseX>(2.5f*this.pos_x) - 140 && mouseX<(2.5f*this.pos_x) - 130 && mouseY>this.pos_y-10 && mouseY<this.pos_y+10) 
+    {
+      fill(50,255,0);
+    }
+    else
+    {
+      fill(100,2,15);
+    }
+    
+    
+    // The left arrow
+    beginShape();
+    vertex((2.5f*this.pos_x) - 145, this.pos_y);
+    vertex((2.5f*this.pos_x) - 130, this.pos_y-15);
+    vertex((2.5f*this.pos_x) - 130, this.pos_y+15);
+    endShape(CLOSE);
+    
+    
+    if(mouseX<(2.5f*this.pos_x) + 140 && mouseX>(2.5f*this.pos_x) + 130 && mouseY>this.pos_y-10 && mouseY<this.pos_y+10) 
+    {
+      fill(50,255,0);
+    }
+    else
+    {
+      fill(100,2,15);
+    }
+    
+    // the right arrow
+    beginShape();
+    vertex((2.5f*this.pos_x) + 145, this.pos_y);
+    vertex((2.5f*this.pos_x) + 130, this.pos_y-15);
+    vertex((2.5f*this.pos_x) + 130, this.pos_y+15);
+    endShape(CLOSE);
+    
+    
     
     //The stats box
-    noFill();
-    beginShape();
+    //noFill();
+    //beginShape();
     
-    vertex(this.pos_x + 4* draw_size, this.pos_y - corner);  // top right dot
-    vertex(this.pos_x + 2* draw_size, this.pos_y -  corner); // top left dot
-    vertex(this.pos_x + 2* draw_size, this.pos_y + 2 * corner); // bottom left dot
-    vertex(this.pos_x + 4* draw_size, this.pos_y + 2 * corner); // bottom right dot
+    //vertex(this.pos_x + 4* draw_size, this.pos_y - corner);  // top right dot
+    //vertex(this.pos_x + 2* draw_size, this.pos_y -  corner); // top left dot
+    //vertex(this.pos_x + 2* draw_size, this.pos_y + 2 * corner); // bottom left dot
+    //vertex(this.pos_x + 4* draw_size, this.pos_y + 2 * corner); // bottom right dot
     
     //curveVertex(this.pos_x + 4* draw_size, this.pos_y + 2 * corner);
     //curveVertex(this.pos_x + 4.3f* draw_size, this.pos_y + corner);
@@ -103,7 +144,9 @@ class Weapons
     
     //curveVertex(this.pos_x + 4* draw_size, this.pos_y - corner);
     
-    endShape(CLOSE);
+    //endShape(CLOSE);
+   
+   
    
     // Map button
     if((mouseX > box1_x) &&  (mouseX< (size_x+box1_x)) && (mouseY> height- (2*box1_y)) && (mouseY< height - box1_y))

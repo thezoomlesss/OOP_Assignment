@@ -12,7 +12,7 @@ class Loading
     // Settings used for the arcs
     
     background(0);
-    display.border();
+    display.border(0);
     noFill();
     strokeWeight(5);
     fill_loading();
