@@ -21,35 +21,69 @@ class Profile
     textSize(20);
     if(keyPressed && index<12)
     {
+      
+      delay(100);
       if(key!=BACKSPACE)
       {
         name[index]=key;
         index++;
       }
-      delay(300);
-      if(key==ENTER) screen=3;          //few errors here
-      else
-      if(key==BACKSPACE && index>1)  
+      if(key==ENTER) 
       {
-        name[index]=name[12];
-        index--;
         println(index);
+            
+        text_file();
+        screen=3;          //few errors here
+        
       }
-   }
+      
+      if(key==BACKSPACE && index>0)  
+      {
+        index--;
+        name[index]=name[12];
+      }
+    }
+    else
+    {
+      if(key==BACKSPACE && index==12)  
+      {
+        delay(100);
+        index--;
+        name[index]=name[12];
+      }
+    }
+    
     fill(200,0,0);
     for(int test=0; test < index; test++)
     {
       if(name[test]!=name[12])
       {
-        text(name[test], width * 0.4f+(20*test),height  * 0.742f);
+        text(name[test], width * 0.4f+(18*test),height  * 0.742f);
+      }
+    } // end for
+    
+    
+  }// end get_name()
+  
+  void text_file()
+  {
+    {
+      String file= new String(name);
+      String extension=".txt";
+      
+      file=file+extension;
+      
+     
+      File f = new File(sketchPath(file));
+      
+      if(f.exists())
+      {
+        println("DA");
+      }
+      else
+      {
+        println("NU");
       }
     }
-    
-    if(index==5) 
-    {     
-      println(name);
-      screen=3;
-    }
   }
-  
 }

@@ -4,10 +4,10 @@
       
       
       To do list:
-        - Program state function to determine which screen to use
-        - 3+ screens
-        - Animation between swapping the screens
-        - Make everything modular
+        - Program state function to determine which screen to use DONE
+        - 3+ screens DONE
+        - Animation between swapping the screens  DONE
+        - Make everything modular DONE 
         - Continous functions 
         - Loading animation    DONE
         - Add border           DONE
@@ -15,9 +15,8 @@
         - Add classes for armors
         - Add a change color setting
         - Use lerp for the clock to make it smoother
-
+        - Create the file/open it and write the data/read the data
 */
-File f = new File(sketchPath("Test.txt"));
 
 
 void setup()
@@ -31,14 +30,7 @@ void setup()
   game_state(0);
   frameRate(60);
   smooth();
-  if(f.exists())
-  {
-    println("DA");
-  }
-  else
-  {
-    println("NU");
-  }
+  
 }
 
 
