@@ -1,5 +1,11 @@
 class Loading
 {
+  int next_screen2;
+  
+  Loading()
+  {
+    this.next_screen2=0;
+  }
   
   void display_loading()
   {
@@ -27,6 +33,9 @@ class Loading
     fill(150,205,205);
     textSize(20);
     text("Loading", position_x-42, position_y+2);
+    
+    if(frameCount % 60 == 0) next_screen2++;
+    if(next_screen2>3) screen=3;
   }
   
   void fill_loading()   // From pink to purple

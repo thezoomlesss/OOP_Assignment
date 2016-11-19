@@ -42,7 +42,7 @@ float image_width, image_height;
 int x_coord=10, y_coord=10;
 int x_coord_copy=x_coord+5, y_coord_copy=y_coord+5; 
 int index=0, screen=0;
-String Profile;
+String Profile, file;
 
 // Object declaration area
 Border display=new Border();
@@ -73,12 +73,12 @@ void game_state(int a)
       paint.display_loading();
       break;
     }
-    case 2:     // The main menu
+    case 2:     // The 2nd loading screen
     {
       create.display_loading2();
       break;
     }
-    case 3:
+    case 3: // main menu
     {
       draw.clock();
       break;

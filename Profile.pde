@@ -22,18 +22,16 @@ class Profile
     if(keyPressed && index<12)
     {
       
-      delay(100);
-      if(key!=BACKSPACE)
+      delay(200);
+      if(key!=BACKSPACE && key!=ENTER)
       {
         name[index]=key;
         index++;
       }
       if(key==ENTER) 
       {
-        println(index);
             
-        text_file();
-        screen=3;          //few errors here
+        text_file();          
         
       }
       
@@ -47,7 +45,7 @@ class Profile
     {
       if(key==BACKSPACE && index==12)  
       {
-        delay(100);
+        delay(200);
         index--;
         name[index]=name[12];
       }
@@ -68,22 +66,30 @@ class Profile
   void text_file()
   {
     {
-      String file= new String(name);
-      String extension=".txt";
+      file= String.valueOf(name);
+      file=file.trim();
       
-      file=file+extension;
-      
-     
-      File f = new File(sketchPath(file));
-      
+      // Checking if the file exists
+      File f = new File(sketchPath(file+".csv")); 
       if(f.exists())
       {
-        println("DA");
+        println("The profile already exists");
+        // Open the file
+        screen=2; // This will run for 3 seconds and then it will go to screen 3
+        
+        
       }
       else
       {
-        println("NU");
+        println("Profile created!");
+        PrintWriter profile_txt;   
+        profile_txt = createWriter(file+".csv");   
+        profile_txt.close(); 
+        // open the file
+        screen=2; // This will run for 3 seconds and then it will go to screen 3
+        
       }
+      
     }
   }
 }

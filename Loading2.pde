@@ -4,13 +4,14 @@ class Loading2
   boolean condition2=false;
   float Xg,Yg;
   float Xg_copy, Yg_copy;
+  int next_screen=0;
   
   Loading2(float Xg, float Yg)
   {
     this.Xg_copy=this.Xg=Xg;
     this.Yg_copy=this.Yg=Yg;
     this.cond=2;
-    
+    this.next_screen=0;
   }
   
   void display_loading2()
@@ -62,6 +63,9 @@ class Loading2
      fill(0,55,55);
      noStroke();
      ellipse(this.Xg, this.Yg, size, size);
-  }
+     if(frameCount % 60 ==0)next_screen++;
+     
+     if(next_screen>3)screen=3;
+  } // end display_loading2
   
 }// end class
