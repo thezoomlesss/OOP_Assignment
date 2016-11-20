@@ -27,7 +27,6 @@ void setup()
   background(0);
   image_width= width * 0.08f; 
   image_height= width * 0.08f;
-  game_state(0);
   frameRate(60);
   smooth();
   
@@ -45,6 +44,8 @@ int index=0, screen=3;
 String Profile, file;
 
 // Object declaration area
+
+ArrayList <Weapon_list> w_l= new ArrayList <Weapon_list>();
 Border display=new Border();
 Clock draw= new Clock();  
 Loading paint= new Loading();
@@ -53,7 +54,9 @@ Weapons get=new Weapons(250,250);
 Show_Records table=new Show_Records();
 Profile disp= new Profile();
 Logo logo= new Logo();  
+
   
+
 void draw()
 {
   game_state(screen);

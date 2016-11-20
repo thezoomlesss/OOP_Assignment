@@ -68,7 +68,7 @@ class Profile
     {
       file= String.valueOf(name);
       file=file.trim();
-      
+      file=file.toUpperCase();
       // Checking if the file exists
       File f = new File(sketchPath(file+".csv")); 
       if(f.exists())

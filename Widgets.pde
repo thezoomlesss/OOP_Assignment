@@ -59,7 +59,7 @@ class Clock
 
 class Logo
 {
-  float p_x=1366-130, p_y=100;
+  float p_x=1366-130, p_y=80;
   
   
   void display1()
@@ -105,7 +105,7 @@ class Logo
   
   void display2()
   {
-    float p2_x=1366-130,p2_y=250;
+    float p2_x=1366-130,p2_y=200;
     
     fill(188,198,204);
     beginShape();
@@ -125,6 +125,13 @@ class Logo
     vertex(p2_x+5, p2_y+30);
     endShape(CLOSE);
     
-    ellipse(p2_x, p2_y+30+30, 20,30);
+    stroke(188,198,204);
+    ellipse(p2_x, p2_y+30+30, 25,25);
+    line(p2_x, p2_y+30+30, p2_x-1, p2_y-5);
+    beginShape();          //The arrow of the second logo
+    vertex(p2_x, p2_y-25);
+    vertex(p2_x-12, p2_y-5);
+    vertex(p2_x+12, p2_y-5);
+    endShape(CLOSE);
   }
 }

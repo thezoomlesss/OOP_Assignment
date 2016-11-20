@@ -41,7 +41,7 @@ class Weapons
     
     if(mouseX>this.pos_x - 140 && mouseX<this.pos_x - 130 && mouseY>this.pos_y-10 && mouseY<this.pos_y+10) 
     {
-      fill(50,255,0);
+      fill(131,156,165);
     }
     else
     {
@@ -59,7 +59,7 @@ class Weapons
     
     if(mouseX<this.pos_x + 140 && mouseX>this.pos_x + 130 && mouseY>this.pos_y-10 && mouseY<this.pos_y+10) 
     {
-      fill(50,255,0);
+      fill(131,156,165);
     }
     else
     {
@@ -94,7 +94,7 @@ class Weapons
     
     if(mouseX>(2.5f*this.pos_x) - 140 && mouseX<(2.5f*this.pos_x) - 130 && mouseY>this.pos_y-10 && mouseY<this.pos_y+10) 
     {
-      fill(50,255,0);
+      fill(131,156,165);
     }
     else
     {
@@ -112,7 +112,7 @@ class Weapons
     
     if(mouseX<(2.5f*this.pos_x) + 140 && mouseX>(2.5f*this.pos_x) + 130 && mouseY>this.pos_y-10 && mouseY<this.pos_y+10) 
     {
-      fill(50,255,0);
+      fill(131,156,165);
     }
     else
     {
@@ -151,7 +151,7 @@ class Weapons
     // Map button
     if((mouseX > box1_x) &&  (mouseX< (size_x+box1_x)) && (mouseY> height- (2*box1_y)) && (mouseY< height - box1_y))
     {
-      fill(200,0,0);  // Change this color
+      fill(131,156,165);  
     }
     else
     {
@@ -175,7 +175,7 @@ class Weapons
     
     if((mouseX > box2_x ) &&  (mouseX< (size_x+box2_x) ) && (mouseY> height- (2*box1_y)) && (mouseY< height - box1_y))
     {
-      fill(200,0,0);  // Change this color
+      fill(131,156,165);
     }
     else
     {
@@ -198,7 +198,7 @@ class Weapons
     // Armor button
     if((mouseX > box3_x ) &&  (mouseX< (size_x +box3_x)) && (mouseY> height- (2*box1_y)) && (mouseY< height - box1_y))
     {
-      fill(200,0,0);  // Change this color
+      fill(131,156,165);
     }
     else
     {
@@ -221,4 +221,24 @@ class Weapons
     
   }
   
+}
+
+class Weapon_list
+{
+  int id;
+  //int size;
+  String name;
+  String type;
+  String pic;
+  
+  Weapon_list(int a, String b, String name)
+  {
+    // Use either this or the for loop and parameter this.size= w_l.size();
+    this.id=a;
+    this.name=name;
+    this.pic= "Image"+a; //this.size;
+    if(b=="primary") this.type="Primary";
+      else
+      this.type="Secondary";
+  }
 }
