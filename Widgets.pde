@@ -6,6 +6,7 @@ class Clock
     display.border(1);
     get.display_weapon();
     logo.display1();
+    logo.display2();
     
       int h= hour();        // 0-23
       int m= minute();      // 0-59
@@ -58,7 +59,7 @@ class Clock
 
 class Logo
 {
-  float p_x=1366-200, p_y=120;
+  float p_x=1366-130, p_y=100;
   
   
   void display1()
@@ -100,5 +101,30 @@ class Logo
     vertex(p_x+13,p_y+50+17); // bottom inner
     vertex(p_x+20+5, p_y+5+5+50-5); // bottom left inner
     endShape(CLOSE);
+  }
+  
+  void display2()
+  {
+    float p2_x=1366-130,p2_y=250;
+    
+    fill(188,198,204);
+    beginShape();
+    vertex(p2_x-5,p2_y); // top middle inner left side
+    vertex(p2_x-5-10, p2_y); // top middle outer left side
+    vertex(p2_x-5-10-15, p2_y+30); // mid point
+    vertex(p2_x-5-10-20-20, p2_y+30+40); // lower outer left
+    vertex(p2_x-5-10-20-20+10, p2_y+30+40); // lower inner left
+    vertex(p2_x-5, p2_y+30);
+    endShape(CLOSE);
+    beginShape();
+    vertex(p2_x+5,p2_y); // top middle inner left side
+    vertex(p2_x+5+10, p2_y); // top middle outer left side
+    vertex(p2_x+5+10+15, p2_y+30); // mid point
+    vertex(p2_x+5+10+20+20, p2_y+30+40); // lower outer left
+    vertex(p2_x+5+10+20+20-10, p2_y+30+40); // lower inner left
+    vertex(p2_x+5, p2_y+30);
+    endShape(CLOSE);
+    
+    ellipse(p2_x, p2_y+30+30, 20,30);
   }
 }
