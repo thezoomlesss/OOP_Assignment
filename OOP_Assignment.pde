@@ -41,7 +41,7 @@ int condition=0;     // Variable used for the color of the loading screen. Leave
 float image_width, image_height;
 int x_coord=10, y_coord=10;
 int x_coord_copy=x_coord+5, y_coord_copy=y_coord+5; 
-int index=0, screen=0;
+int index=0, screen=3;
 String Profile, file;
 
 // Object declaration area
@@ -52,7 +52,7 @@ Loading2 create= new Loading2(730, 600);
 Weapons get=new Weapons(250,250);
 Show_Records table=new Show_Records();
 Profile disp= new Profile();
-  
+Logo logo= new Logo();  
   
 void draw()
 {

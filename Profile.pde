@@ -74,7 +74,7 @@ class Profile
       if(f.exists())
       {
         println("The profile already exists");
-        // Open the file
+        table.load(); // Loading the table
         screen=2; // This will run for 3 seconds and then it will go to screen 3
         
         
@@ -85,7 +85,7 @@ class Profile
         PrintWriter profile_txt;   
         profile_txt = createWriter(file+".csv");   
         profile_txt.close(); 
-        // open the file
+        table.load();  // loading the table
         screen=2; // This will run for 3 seconds and then it will go to screen 3
         
       }

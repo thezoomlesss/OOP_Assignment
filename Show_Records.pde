@@ -1,14 +1,15 @@
 class Show_Records
 {
   Table table;
-  String file;
   
- 
+  void load()
+  {
+    table=loadTable(file+".csv");
+  }
   void display()
   {
     display.border(0);
     
-    table=loadTable(this.file+".csv");
-
+    
   }
 }  

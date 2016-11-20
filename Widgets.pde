@@ -5,6 +5,7 @@ class Clock
     background(0);
     display.border(1);
     get.display_weapon();
+    logo.display1();
     
       int h= hour();        // 0-23
       int m= minute();      // 0-59
@@ -52,5 +53,52 @@ class Clock
       textSize(14);
       fill(255);
       text(h_disp+":" + m_disp + ":" + s_disp, position_x-30, position_y+10); 
+  }
+}
+
+class Logo
+{
+  float p_x=1366-200, p_y=120;
+  
+  
+  void display1()
+  {
+    fill(255);
+    noStroke();
+    beginShape();
+    vertex(p_x, p_y-20); // top outer middle
+    vertex(p_x-20, p_y); // top outer left
+    vertex(p_x-20, p_y+50); // bottom outer left
+    vertex(p_x-3, p_y+50+20); // bottom outer middle left side
+    vertex(p_x-3, p_y+50); // bottom inner middle left side
+    vertex(p_x-10, p_y+50-10); // bottom left inner
+    vertex(p_x-10, p_y+10); // top inner left
+    vertex(p_x, p_y); // middle inner
+    vertex(p_x+10, p_y+10); // top inner right
+    vertex(p_x+10, p_y+50-10);// bottom right inner 
+    vertex(p_x+3, p_y+50); // bottom inner middlie right side
+    vertex(p_x+3, p_y+50+20); // bottom outer middle right side
+    vertex(p_x+20, p_y+50); // bottom outer right
+    vertex(p_x+20, p_y); // top outer right
+    endShape(CLOSE);
+    
+    fill(244,164,96);
+    beginShape();  // Left shape
+    vertex(p_x-20-5, p_y+5); // top right 
+    vertex(p_x-20-5-7, p_y+5+5); //top left
+    vertex(p_x-20-5-7, p_y+5+5+50); // bottom left outer
+    vertex(p_x-13,p_y+50+30); // bottom outer
+    vertex(p_x-13,p_y+50+17); // bottom inner
+    vertex(p_x-20-5, p_y+5+5+50-5); // bottom left inner
+    endShape(CLOSE);
+    
+    beginShape();
+    vertex(p_x+20+5, p_y+5); // top right 
+    vertex(p_x+20+5+7, p_y+5+5); //top left
+    vertex(p_x+20+5+7, p_y+5+5+50); // bottom left outer
+    vertex(p_x+13,p_y+50+30); // bottom outer
+    vertex(p_x+13,p_y+50+17); // bottom inner
+    vertex(p_x+20+5, p_y+5+5+50-5); // bottom left inner
+    endShape(CLOSE);
   }
 }
