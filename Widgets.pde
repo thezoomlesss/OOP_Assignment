@@ -7,6 +7,7 @@ class Clock
     get.display_weapon();
     logo.display1();
     logo.display2();
+    logo.display3();
     
       int h= hour();        // 0-23
       int m= minute();      // 0-59
@@ -105,7 +106,7 @@ class Logo
   
   void display2()
   {
-    float p2_x=1366-130,p2_y=200;
+    float p2_x=1366-130,p2_y=220;
     
     fill(188,198,204);
     beginShape();
@@ -132,6 +133,46 @@ class Logo
     vertex(p2_x, p2_y-25);
     vertex(p2_x-12, p2_y-5);
     vertex(p2_x+12, p2_y-5);
+    endShape(CLOSE);
+  }
+  
+  void display3()
+  {
+    float p3_x=1366-130, p3_y=340;
+    
+    fill(1,2,40);
+    stroke(40);
+    strokeWeight(3);
+    beginShape();
+    vertex(p3_x, p3_y-10); // top hexagon
+    vertex(p3_x-40, p3_y+25); // top left corner
+    vertex(p3_x-40, p3_y+60); // bottom left corner
+    vertex(p3_x, p3_y+90); // bottom hexagon
+    vertex(p3_x+40, p3_y+60); // bottom right corner
+    vertex(p3_x+40, p3_y+25); // top right corner
+    endShape(CLOSE);
+    
+    line(p3_x, p3_y-10, p3_x, p3_y+20);
+    line(p3_x-40, p3_y+60, p3_x-25, p3_y+55);
+    line(p3_x+40, p3_y+60, p3_x+25, p3_y+55);
+    
+    fill(0,127,255);
+    beginShape();  // left triangle
+    vertex(p3_x-30, p3_y+30);
+    vertex(p3_x, p3_y+80); // bottom corner
+    vertex(p3_x, p3_y+45);
+    endShape(CLOSE);
+    
+    beginShape();  // top part
+    vertex(p3_x-30, p3_y+30);
+    vertex(p3_x+30, p3_y+30);
+    vertex(p3_x, p3_y+45);
+    endShape(CLOSE);
+    
+    beginShape();
+    vertex(p3_x+30, p3_y+30);
+    vertex(p3_x, p3_y+80);
+    vertex(p3_x, p3_y+45);
     endShape(CLOSE);
   }
 }
