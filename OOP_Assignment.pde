@@ -16,7 +16,9 @@
         - Add a change color setting 
         - Use lerp for the clock to make it smoother
         - Create the file/open it and write the data/read the data ALMOST DONE
-*/
+
+        Error when the array is full we can't press enter.  SOLVED
+ */
 
 
 void setup()

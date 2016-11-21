@@ -19,7 +19,7 @@ class Profile
     fill(1,2,15);
     rect(width * 0.38f, height  * 0.7f, 260, 50);
     textSize(20);
-    if(keyPressed && index<12)
+    if(keyPressed && (index<12 || key==ENTER))
     {
       
       delay(200);
