@@ -138,7 +138,7 @@ class Logo
   
   void display3()
   {
-    float p3_x=1366-130, p3_y=340;
+    float p3_x=1366-130, p3_y=330;
     /*
     fill(1,2,40);
     //stroke(188,198,204);

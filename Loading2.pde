@@ -14,7 +14,7 @@ class Loading2
     this.next_screen=0;
   }
   
-  void display_loading2()
+  void display_loading2(int a)
   {
     
     if( this.Xg > this.Xg_copy-165 && condition2==false  )
@@ -65,7 +65,7 @@ class Loading2
      ellipse(this.Xg, this.Yg, size, size);
      if(frameCount % 60 ==0)next_screen++;
      
-     if(next_screen>3)screen=3;
+     if(next_screen>3)screen=a;
   } // end display_loading2
   
 }// end class

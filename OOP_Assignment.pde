@@ -8,14 +8,14 @@
         - 3+ screens DONE
         - Animation between swapping the screens  DONE
         - Make everything modular DONE 
-        - Continous functions 
+        - Continous functions  DONE
         - Loading animation    DONE
         - Add border           DONE
-        - Add classes for weapons
-        - Add classes for armors
-        - Add a change color setting
+        - Add classes for weapons  ON IT NOW
+        - Add classes for armors  REMOVED
+        - Add a change color setting 
         - Use lerp for the clock to make it smoother
-        - Create the file/open it and write the data/read the data
+        - Create the file/open it and write the data/read the data ALMOST DONE
 */
 
 
@@ -40,7 +40,7 @@ int condition=0;     // Variable used for the color of the loading screen. Leave
 float image_width, image_height;
 int x_coord=10, y_coord=10;
 int x_coord_copy=x_coord+5, y_coord_copy=y_coord+5; 
-int index=0, screen=3;
+int index=0, screen=0;
 String Profile, file;
 
 // Object declaration area
@@ -54,7 +54,7 @@ Weapons get=new Weapons(250,250);
 Show_Records table=new Show_Records();
 Profile disp= new Profile();
 Logo logo= new Logo();  
-
+Maps map=new Maps();
   
 
 void draw()
@@ -78,7 +78,7 @@ void game_state(int a)
     }
     case 2:     // The 2nd loading screen
     {
-      create.display_loading2();
+      create.display_loading2(3);
       break;
     }
     case 3: // main menu
@@ -87,6 +87,11 @@ void game_state(int a)
       break;
     }
     case 4:
+    {
+      map.display();
+      break;
+    }
+    case 5:
     {
       table.display();
       break;

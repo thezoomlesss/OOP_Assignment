@@ -27,8 +27,15 @@ class Border
     
     if(line==1)
     {
+      float name_length=map(file.length(), 0, 12, 0, 130);
+      
+      
       line(1100,y_coord_copy,1100,height-y_coord_copy);
       line(1095,y_coord_copy,1095,height-y_coord_copy);
+      fill(200,2,15);
+      text(file, 1095-name_length,y_coord_copy+35);
+      fill(1,2,15);
+      line(1090-name_length,y_coord_copy +40,1095,y_coord_copy +40 );
     }
     
   }
