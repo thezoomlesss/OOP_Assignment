@@ -139,9 +139,10 @@ class Logo
   void display3()
   {
     float p3_x=1366-130, p3_y=340;
-    
+    /*
     fill(1,2,40);
-    stroke(40);
+    //stroke(188,198,204);
+    stroke(158,168,174);
     strokeWeight(3);
     beginShape();
     vertex(p3_x, p3_y-10); // top hexagon
@@ -152,27 +153,28 @@ class Logo
     vertex(p3_x+40, p3_y+25); // top right corner
     endShape(CLOSE);
     
+   
     line(p3_x, p3_y-10, p3_x, p3_y+20);
     line(p3_x-40, p3_y+60, p3_x-25, p3_y+55);
     line(p3_x+40, p3_y+60, p3_x+25, p3_y+55);
-    
+    */
     fill(0,127,255);
     beginShape();  // left triangle
-    vertex(p3_x-30, p3_y+30);
-    vertex(p3_x, p3_y+80); // bottom corner
-    vertex(p3_x, p3_y+45);
+    vertex(p3_x-40, p3_y+30);
+    vertex(p3_x, p3_y+100); // bottom corner
+    vertex(p3_x, p3_y+55);
     endShape(CLOSE);
     
     beginShape();  // top part
-    vertex(p3_x-30, p3_y+30);
-    vertex(p3_x+30, p3_y+30);
-    vertex(p3_x, p3_y+45);
+    vertex(p3_x-40, p3_y+30);
+    vertex(p3_x+40, p3_y+30);
+    vertex(p3_x, p3_y+55);
     endShape(CLOSE);
     
     beginShape();
-    vertex(p3_x+30, p3_y+30);
-    vertex(p3_x, p3_y+80);
-    vertex(p3_x, p3_y+45);
+    vertex(p3_x+40, p3_y+30);
+    vertex(p3_x, p3_y+100);
+    vertex(p3_x, p3_y+55);
     endShape(CLOSE);
   }
 }

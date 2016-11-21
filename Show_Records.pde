@@ -4,7 +4,7 @@ class Show_Records
   
   void load()
   {
-    table=loadTable(file+".csv");
+    table=loadTable(dataPath(file+".csv"));   
   }
   void display()
   {

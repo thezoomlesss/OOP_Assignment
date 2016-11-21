@@ -83,7 +83,7 @@ class Profile
       {
         println("Profile created!");
         PrintWriter profile_txt;   
-        profile_txt = createWriter(file+".csv");   
+        profile_txt = createWriter(dataPath(file+".csv"));   
         profile_txt.close(); 
         table.load();  // loading the table
         screen=2; // This will run for 3 seconds and then it will go to screen 3
