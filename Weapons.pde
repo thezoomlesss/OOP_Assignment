@@ -12,8 +12,9 @@ class Weapons
   
   void display_weapon()
   {
+    draw.clock();
     fill(100,2,15);
-    
+    strokeWeight(2);
     textSize(30);
     text("Choose a loadout:", 50, 80);
     stroke(25,45,90);    

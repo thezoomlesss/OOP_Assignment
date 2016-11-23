@@ -1,4 +1,4 @@
-class Maps
+class Armor
 {
   void display()
   {

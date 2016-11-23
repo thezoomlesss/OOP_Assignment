@@ -57,7 +57,7 @@ Show_Records table=new Show_Records();
 Profile disp= new Profile();
 Logo logo= new Logo();  
 Maps map=new Maps();
-  
+Armor armor=new Armor();  
 
 void draw()
 {
@@ -85,7 +85,7 @@ void game_state(int a)
     }
     case 3: // main menu
     {
-      draw.clock();
+      get.display_weapon();
       break;
     }
     case 4:
@@ -100,7 +100,7 @@ void game_state(int a)
     }
     case 6: 
     {
-      // add armor screen
+      armor.display();// add armor screen
       break;
     }
     
@@ -144,7 +144,8 @@ void mouseClicked()
     
     if((mouseX > box3_x ) &&  (mouseX< (size_x +box3_x)) && (mouseY> height- (2*box1_y)) && (mouseY< height - box1_y))
     {
-       // armor
+       new_screen=6;
+       screen=1;// armor
     }
     
     

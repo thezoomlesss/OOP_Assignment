@@ -158,6 +158,7 @@ class Border
   {
       float name_length=map(file.length(), 0, 12, 0, 130);
       textSize(14);
+      stroke(25,45,90);    
       strokeWeight(2);
       fill(200,2,15);
       text(file, 1095-name_length,y_coord_copy+35);

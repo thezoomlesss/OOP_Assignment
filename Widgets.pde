@@ -4,7 +4,6 @@ class Clock
   {
     background(0);
     display.border(1);
-    get.display_weapon();
     logo.display1();
     logo.display2();
     logo.display3();
