@@ -9,6 +9,9 @@ class Show_Records
   void display()
   {
     display.border(0);
+    load();
+    println(table.getRowCount() + " total rows in table"); 
+
     
     
   }
