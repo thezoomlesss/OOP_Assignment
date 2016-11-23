@@ -16,6 +16,7 @@
         - Add a change color setting 
         - Use lerp for the clock to make it smoother
         - Create the file/open it and write the data/read the data ALMOST DONE
+        - Make the display table translate downwards
 
         Error when the array is full we can't press enter.  SOLVED
 */
@@ -80,22 +81,22 @@ void game_state(int a)
     }
     case 2:     // The 2nd loading screen
     {
-      create.display_loading2(new_screen);
+      create.display_loading2(new_screen);  
       break;
     }
     case 3: // main menu
     {
-      get.display_weapon();
+      get.display_weapon();  // weapon screen
       break;
     }
     case 4:
     {
-      map.display();
+      map.display();  // map screen
       break;
     }
     case 5:
     {
-      table.display();
+      table.display(); // display  records
       break;
     }
     case 6: 
@@ -117,7 +118,7 @@ void game_state(int a)
 
 void mouseClicked()
 {
-  if( screen == 3 || screen == 4 || screen == 6)
+  if( screen == 3 || screen == 4 || screen == 6 || screen == 5)
   {
     
     float box1_x=100, box1_y=50;
@@ -125,33 +126,27 @@ void mouseClicked()
     float box3_x= 100*3 +40;
     float box4_x=850, box4_y=50;
     int size_x=100;
-    if((mouseX > box1_x) &&  (mouseX< (size_x+box1_x)) && (mouseY> height- (2*box1_y)) && (mouseY< height - box1_y))
+    if((screen!=4)&&(mouseX > box1_x) &&  (mouseX< (size_x+box1_x)) && (mouseY> height- (2*box1_y)) && (mouseY< height - box1_y))
     {
       new_screen=4;
       screen=1;
       // map
     }
-    
-    
-    if((mouseX > box2_x ) &&  (mouseX< (size_x+box2_x) ) && (mouseY> height- (2*box1_y)) && (mouseY< height - box1_y))
+    if((screen!=3) &&(mouseX > box2_x ) &&  (mouseX< (size_x+box2_x) ) && (mouseY> height- (2*box1_y)) && (mouseY< height - box1_y))
     {
       new_screen=3;
       screen=1;  
       // weapons
     }
-    
-  
-    
-    if((mouseX > box3_x ) &&  (mouseX< (size_x +box3_x)) && (mouseY> height- (2*box1_y)) && (mouseY< height - box1_y))
+    if((screen!=6) && (mouseX > box3_x ) &&  (mouseX< (size_x +box3_x)) && (mouseY> height- (2*box1_y)) && (mouseY< height - box1_y))
     {
        new_screen=6;
        screen=1;// armor
     }
-    
-    
-    if((mouseX > box4_x) &&  (mouseX< (size_x+box4_x)) && (mouseY> height- (2*box4_y)) && (mouseY< height - box4_y))
+    if((screen!=5)&&(mouseX > box4_x) &&  (mouseX< (size_x+box4_x)) && (mouseY> height- (2*box4_y)) && (mouseY< height - box4_y))
     {
-       //record
+      new_screen=5;
+      screen=1;      //record
     }
   }
 }

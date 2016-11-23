@@ -41,9 +41,11 @@ class Border
   void map_button()
   {
     
-    float box1_x=100, box1_y=50; int size_x=100, size_y=50;
-    
-    if((mouseX > box1_x) &&  (mouseX< (size_x+box1_x)) && (mouseY> height- (2*box1_y)) && (mouseY< height - box1_y))
+    float box1_x=100, box1_y=30; int size_x=100, size_y=50;
+   
+    line(x_coord_copy, height * 0.88, 1095, height*0.88); 
+   
+    if(screen==4 ||(mouseX > box1_x) &&  (mouseX< (size_x+box1_x)) && (mouseY> height- (2*box1_y)) && (mouseY< height - box1_y))
     {
       fill(131,156,165);
       
@@ -70,9 +72,9 @@ class Border
   
   void weapon_button()
   {
-    float box2_x=100 * 2 +20, box1_y=50;int size_x=100, size_y=50;
+    float box2_x=100 * 2 +20, box1_y=30;int size_x=100, size_y=50;
     
-    if((mouseX > box2_x ) &&  (mouseX< (size_x+box2_x) ) && (mouseY> height- (2*box1_y)) && (mouseY< height - box1_y))
+    if(screen==3 ||(mouseX > box2_x ) &&  (mouseX< (size_x+box2_x) ) && (mouseY> height- (2*box1_y)) && (mouseY< height - box1_y))
     {
       fill(131,156,165);
     }
@@ -92,16 +94,16 @@ class Border
     
     fill(200,2,15);
     textSize(20);
-    text("Weapon",box2_x+ (box2_x *0.06f), height- (box1_y+(box1_y *0.3f)));
+    text("Weapons",box2_x+ (box2_x *0.037f), height- (box1_y+(box1_y *0.3f)));
     
   }
   
   void armor_button()
   {
-    float box3_x= 100*3 +40, box1_y= 50 ;int size_x=100, size_y=50;
+    float box3_x= 100*3 +40, box1_y= 30 ;int size_x=100, size_y=50;
   
     
-    if((mouseX > box3_x ) &&  (mouseX< (size_x +box3_x)) && (mouseY> height- (2*box1_y)) && (mouseY< height - box1_y))
+    if( screen==6 || (mouseX > box3_x ) &&  (mouseX< (size_x +box3_x)) && (mouseY> height- (2*box1_y)) && (mouseY< height - box1_y))
     {
       fill(131,156,165);
     }
@@ -129,9 +131,9 @@ class Border
   
   void record_button()
   {
-    float box4_x=850, box4_y=50, size_x=100, size_y=50;
+    float box4_x=850, box4_y=30, size_x=100, size_y=50;
     
-    if((mouseX > box4_x) &&  (mouseX< (size_x+box4_x)) && (mouseY> height- (2*box4_y)) && (mouseY< height - box4_y))
+    if(screen==5 ||(mouseX > box4_x) &&  (mouseX< (size_x+box4_x)) && (mouseY> height- (2*box4_y)) && (mouseY< height - box4_y))
     {
       fill(131,156,165);  
     }

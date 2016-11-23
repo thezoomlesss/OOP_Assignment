@@ -70,7 +70,7 @@ class Profile
       file=file.trim();
       file=file.toUpperCase();
       // Checking if the file exists
-      File f = new File(dataPath(file+".csv")); 
+      File f = new File(dataPath(file+".txt")); 
       if(f.exists())
       {
         println("The profile already exists");
@@ -84,7 +84,10 @@ class Profile
       {
         println("Profile created!");
         PrintWriter profile_txt;   
-        profile_txt = createWriter(dataPath(file+".csv"));   
+        profile_txt = createWriter(dataPath(file+".txt"));
+        
+                    // print header to file
+        
         profile_txt.close(); 
         table.load();  // loading the table
         new_screen=3; // This will make it go through screen 2 then to screen 3
