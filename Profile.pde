@@ -70,11 +70,12 @@ class Profile
       file=file.trim();
       file=file.toUpperCase();
       // Checking if the file exists
-      File f = new File(sketchPath(file+".csv")); 
+      File f = new File(dataPath(file+".csv")); 
       if(f.exists())
       {
         println("The profile already exists");
         table.load(); // Loading the table
+        new_screen=3; // This will make it go through screen 2 then to screen 3
         screen=2; // This will run for 3 seconds and then it will go to screen 3
         
         
@@ -86,6 +87,7 @@ class Profile
         profile_txt = createWriter(dataPath(file+".csv"));   
         profile_txt.close(); 
         table.load();  // loading the table
+        new_screen=3; // This will make it go through screen 2 then to screen 3
         screen=2; // This will run for 3 seconds and then it will go to screen 3
         
       }

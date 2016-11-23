@@ -7,7 +7,7 @@ class Loading
     this.next_screen2=0;
   }
   
-  void display_loading()
+  void display_loading(int a)
   {
     // Variables
     float position_x =  width * 0.5;
@@ -35,7 +35,7 @@ class Loading
     text("Loading", position_x-42, position_y+2);
     
     if(frameCount % 60 == 0) next_screen2++;
-    if(next_screen2>3) screen=3;
+    if(next_screen2>3) screen=a;
   }
   
   void fill_loading()   // From pink to purple

@@ -42,7 +42,7 @@ int condition=0;     // Variable used for the color of the loading screen. Leave
 float image_width, image_height;
 int x_coord=10, y_coord=10;
 int x_coord_copy=x_coord+5, y_coord_copy=y_coord+5; 
-int index=0, screen=0;
+int index=0, screen=0, new_screen;
 String Profile, file;
 
 // Object declaration area
@@ -75,12 +75,12 @@ void game_state(int a)
     }
     case 1: // The loading screen
     {
-      paint.display_loading();
+      paint.display_loading(new_screen);
       break;
     }
     case 2:     // The 2nd loading screen
     {
-      create.display_loading2(3);
+      create.display_loading2(new_screen);
       break;
     }
     case 3: // main menu
@@ -96,6 +96,11 @@ void game_state(int a)
     case 5:
     {
       table.display();
+      break;
+    }
+    case 6: 
+    {
+      // add armor screen
       break;
     }
     
