@@ -35,7 +35,11 @@ class Loading
     text("Loading", position_x-42, position_y+2);
     
     if(frameCount % 60 == 0) next_screen2++;
-    if(next_screen2>3) screen=a;
+    if(next_screen2>3) 
+    {
+      next_screen2=0;
+      screen=a;
+    }
   }
   
   void fill_loading()   // From pink to purple

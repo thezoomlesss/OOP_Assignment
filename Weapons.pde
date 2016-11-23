@@ -12,7 +12,6 @@ class Weapons
   
   void display_weapon()
   {
-    
     fill(100,2,15);
     
     textSize(30);

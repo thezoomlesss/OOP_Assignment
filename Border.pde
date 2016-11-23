@@ -157,7 +157,8 @@ class Border
   void name_box()
   {
       float name_length=map(file.length(), 0, 12, 0, 130);
-      
+      textSize(14);
+      strokeWeight(2);
       fill(200,2,15);
       text(file, 1095-name_length,y_coord_copy+35);
       fill(1,2,15);
@@ -166,34 +167,5 @@ class Border
 
   void mouseClicked()
   {
-    float box1_x=100, box1_y=50;
-    float box2_x=100 * 2 +20;
-    float box3_x= 100*3 +40;
-    float box4_x=850, box4_y=50;
-    int size_x=100;
-    
-    if((mouseX > box1_x) &&  (mouseX< (size_x+box1_x)) && (mouseY> height- (2*box1_y)) && (mouseY< height - box1_y))
-    {
-      // map
-    }
-    
-    
-    if((mouseX > box2_x ) &&  (mouseX< (size_x+box2_x) ) && (mouseY> height- (2*box1_y)) && (mouseY< height - box1_y))
-    {
-        // weapons
-    }
-    
-  
-    
-    if((mouseX > box3_x ) &&  (mouseX< (size_x +box3_x)) && (mouseY> height- (2*box1_y)) && (mouseY< height - box1_y))
-    {
-       // armor
-    }
-    
-    
-    if((mouseX > box4_x) &&  (mouseX< (size_x+box4_x)) && (mouseY> height- (2*box4_y)) && (mouseY< height - box4_y))
-    {
-       //record
-    }
   }// end void mouseClicked()
 }

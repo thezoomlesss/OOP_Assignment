@@ -65,7 +65,11 @@ class Loading2
      ellipse(this.Xg, this.Yg, size, size);
      if(frameCount % 60 ==0)next_screen++;
      
-     if(next_screen>3)screen=a;
+     if(next_screen>3)
+     {
+       next_screen=0;
+       screen=a;
+     }
   } // end display_loading2
   
 }// end class

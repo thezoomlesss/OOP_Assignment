@@ -114,3 +114,43 @@ void game_state(int a)
     }
   } // End switch
 }
+
+void mouseClicked()
+{
+  if( screen == 3 || screen == 4 || screen == 6)
+  {
+    
+    float box1_x=100, box1_y=50;
+    float box2_x=100 * 2 +20;
+    float box3_x= 100*3 +40;
+    float box4_x=850, box4_y=50;
+    int size_x=100;
+    if((mouseX > box1_x) &&  (mouseX< (size_x+box1_x)) && (mouseY> height- (2*box1_y)) && (mouseY< height - box1_y))
+    {
+      new_screen=4;
+      screen=1;
+      // map
+    }
+    
+    
+    if((mouseX > box2_x ) &&  (mouseX< (size_x+box2_x) ) && (mouseY> height- (2*box1_y)) && (mouseY< height - box1_y))
+    {
+      new_screen=3;
+      screen=1;  
+      // weapons
+    }
+    
+  
+    
+    if((mouseX > box3_x ) &&  (mouseX< (size_x +box3_x)) && (mouseY> height- (2*box1_y)) && (mouseY< height - box1_y))
+    {
+       // armor
+    }
+    
+    
+    if((mouseX > box4_x) &&  (mouseX< (size_x+box4_x)) && (mouseY> height- (2*box4_y)) && (mouseY< height - box4_y))
+    {
+       //record
+    }
+  }
+}
