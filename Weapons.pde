@@ -143,8 +143,9 @@ class Weapons
     
     //endShape(CLOSE);
    
-   
-    w_l.get(pic_index).display_image();
+   // Remove the "//" once you have the right pictures
+    //w_l.get(pic_index).display_image();
+    //w_l2.get(pic_index2).display_image();
     
   }
 }

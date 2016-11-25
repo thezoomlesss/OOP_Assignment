@@ -74,7 +74,8 @@ Maps map=new Maps();
 Armor armor=new Armor();  
 
 // test variables
-int pic_index=1;
+int pic_index=1, pic_index2=1;
+
 
 void draw()
 {
@@ -159,10 +160,10 @@ void mouseClicked()
     
     if(screen==3) // weapons
     { 
-      // first box 
+      // first box  arrows
+      //left arrow
       if(mouseX>105 && mouseX<125 && mouseY>235 && mouseY<265)
       { 
-        println("yAAS left");
         if(pic_index==0) 
         {
           pic_index=w_l.size()-1;
@@ -171,13 +172,10 @@ void mouseClicked()
         {
           pic_index--;
         }
-        println(w_l.get(pic_index).id+","+pic_index);
       }
-      
+      // right arrow
       if(mouseX>380 && mouseX<395 && mouseY>235 && mouseY<265)
       { 
-        println("yAAS right");
-        println(w_l.size()+"size , index "+pic_index);
         if(pic_index==w_l.size()-1) 
         {
           pic_index=0;
@@ -186,9 +184,37 @@ void mouseClicked()
         {
           pic_index++;
         }
-        println(pic_index);
-        println(w_l.get(pic_index).id+","+pic_index);
       }
+      // end first box
+      
+      //Second box
+      // left arrow
+      if((mouseX>(2.5f*250) - 145) && (mouseX<(2.5f*250) - 130) && (mouseY> 250-15) && (mouseY<250+15))
+      {
+        if(pic_index2==0) 
+        {
+          pic_index2=w_l2.size()-1;
+        }
+        else 
+        {
+          pic_index2--;
+        }
+      }
+      
+      //right arrow
+      if((mouseX<(2.5f*250) + 145) && (mouseX>(2.5f*250) + 130) && (mouseY> 250-15) && (mouseY<250+15))
+      {
+        if(pic_index2==w_l2.size()-1) 
+        {
+          pic_index2=0;
+        }
+        else 
+        {
+          pic_index2++;
+        }
+      }
+      
+      
     }
     else
     {

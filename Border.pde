@@ -168,7 +168,5 @@ class Border
       line(1090-name_length,y_coord_copy +40,1095,y_coord_copy +40);
   }
 
-  void mouseClicked()
-  {
-  }// end void mouseClicked()
+  
 }
