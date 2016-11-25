@@ -144,8 +144,7 @@ class Weapons
     //endShape(CLOSE);
    
    
-    
-    // Armor button
+    w_l.get(pic_index).display_image();
     
   }
 }
@@ -153,19 +152,22 @@ class Weapons
 class Weapon_list
 {
   int id;
-  //int size;
   String name;
   String type;
-  String pic;
+  PImage pic;
   
   Weapon_list(int a, String b, String name)
   {
     // Use either this or the for loop and parameter this.size= w_l.size();
     this.id=a;
     this.name=name;
-    this.pic= dataPath("Image"+a+".jpg"); //this.size;
+    this.pic= loadImage(dataPath("Image"+a+".jpg")); //this.size;
     if(b=="primary") this.type="Primary";
       else
       this.type="Secondary";
+  }
+  void display_image()
+  {
+    image(this.pic, 250,250);
   }
 }

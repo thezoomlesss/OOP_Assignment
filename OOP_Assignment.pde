@@ -24,20 +24,25 @@
 
 void setup()
 {
-  //size(700,700);  // The size to be change
-  
   fullScreen();
   background(0);
   image_width= width * 0.08f; 
   image_height= width * 0.08f;
   frameRate(60);
   smooth();
-  Weapon_list type_weapon_list=new Weapon_list(1,"Primary","test"); 
-  w_l.add(type_weapon_list);
-  type_weapon_list=new Weapon_list(2,"Primary","test2"); 
-  w_l.add(type_weapon_list);  
-  type_weapon_list=new Weapon_list(3,"Primary","test3"); 
-  w_l.add(type_weapon_list); 
+  
+  Weapon_list type_weapon_list;
+  for(int index_arraylist=1;index_arraylist<4;index_arraylist++)
+  {
+    type_weapon_list=new Weapon_list(index_arraylist,"Primary","test"+index_arraylist); 
+    w_l.add(type_weapon_list);  
+  }
+  for(int index_arraylist=4;index_arraylist<7;index_arraylist++)
+  {
+    type_weapon_list=new Weapon_list(index_arraylist,"Secondary","test"+index_arraylist); 
+    w_l2.add(type_weapon_list);  
+  }
+  
 }
 
 
@@ -55,6 +60,7 @@ String Profile, file;
 // Object declaration area
 
 ArrayList <Weapon_list> w_l= new ArrayList <Weapon_list>();
+ArrayList <Weapon_list> w_l2= new ArrayList <Weapon_list>();
 
 Border display=new Border();
 Clock draw= new Clock();  
@@ -137,17 +143,17 @@ void mouseClicked()
     float box4_x=850, box4_y=50;
     int size_x=100;
     
-    if(screen!=4) // map
+    if(screen==4) // map
+    {
+        
+    }
+    else
     {
       if((mouseX > box1_x) &&  (mouseX< (size_x+box1_x)) && (mouseY> height- (2*box1_y)) && (mouseY< height - box1_y))  // map button pressed
       {
         new_screen=4;
         screen=1;
-      }  
-    }
-    else
-    {
-      
+      }
     }
     
     
@@ -157,15 +163,15 @@ void mouseClicked()
       if(mouseX>105 && mouseX<125 && mouseY>235 && mouseY<265)
       { 
         println("yAAS left");
-        if(pic_index==1) 
+        if(pic_index==0) 
         {
-          pic_index=3;
+          pic_index=w_l.size()-1;
         }
         else 
         {
           pic_index--;
         }
-        println(w_l.get(pic_index-1).id+","+pic_index);
+        println(w_l.get(pic_index).id+","+pic_index);
       }
       
       if(mouseX>380 && mouseX<395 && mouseY>235 && mouseY<265)
@@ -194,7 +200,7 @@ void mouseClicked()
     }
       
     
-    if(screen!=6)  // armor
+    if(screen==6)  // armor
     {
       
     }
@@ -207,7 +213,7 @@ void mouseClicked()
       }
     }
     
-    if(screen!=5)
+    if(screen==5)
     {
       if((mouseX > box4_x) &&  (mouseX< (size_x+box4_x)) && (mouseY> height- (2*box4_y)) && (mouseY< height - box4_y))  // record button pressed
       {
