@@ -32,7 +32,12 @@ void setup()
   image_height= width * 0.08f;
   frameRate(60);
   smooth();
-  
+  Weapon_list type_weapon_list=new Weapon_list(1,"Primary","test"); 
+  w_l.add(type_weapon_list);
+  type_weapon_list=new Weapon_list(2,"Primary","test2"); 
+  w_l.add(type_weapon_list);  
+  type_weapon_list=new Weapon_list(3,"Primary","test3"); 
+  w_l.add(type_weapon_list); 
 }
 
 
@@ -46,9 +51,11 @@ int x_coord_copy=x_coord+5, y_coord_copy=y_coord+5;
 int index=0, screen=0, new_screen;
 String Profile, file;
 
+
 // Object declaration area
 
 ArrayList <Weapon_list> w_l= new ArrayList <Weapon_list>();
+
 Border display=new Border();
 Clock draw= new Clock();  
 Loading paint= new Loading();
@@ -59,6 +66,9 @@ Profile disp= new Profile();
 Logo logo= new Logo();  
 Maps map=new Maps();
 Armor armor=new Armor();  
+
+// test variables
+int pic_index=1;
 
 void draw()
 {
@@ -126,27 +136,84 @@ void mouseClicked()
     float box3_x= 100*3 +40;
     float box4_x=850, box4_y=50;
     int size_x=100;
-    if((screen!=4)&&(mouseX > box1_x) &&  (mouseX< (size_x+box1_x)) && (mouseY> height- (2*box1_y)) && (mouseY< height - box1_y))
+    
+    if(screen!=4) // map
     {
-      new_screen=4;
-      screen=1;
-      // map
+      if((mouseX > box1_x) &&  (mouseX< (size_x+box1_x)) && (mouseY> height- (2*box1_y)) && (mouseY< height - box1_y))  // map button pressed
+      {
+        new_screen=4;
+        screen=1;
+      }  
     }
-    if((screen!=3) &&(mouseX > box2_x ) &&  (mouseX< (size_x+box2_x) ) && (mouseY> height- (2*box1_y)) && (mouseY< height - box1_y))
+    else
     {
-      new_screen=3;
-      screen=1;  
-      // weapons
+      
     }
-    if((screen!=6) && (mouseX > box3_x ) &&  (mouseX< (size_x +box3_x)) && (mouseY> height- (2*box1_y)) && (mouseY< height - box1_y))
-    {
-       new_screen=6;
-       screen=1;// armor
+    
+    
+    if(screen==3) // weapons
+    { 
+      // first box 
+      if(mouseX>105 && mouseX<125 && mouseY>235 && mouseY<265)
+      { 
+        println("yAAS left");
+        if(pic_index==1) 
+        {
+          pic_index=3;
+        }
+        else 
+        {
+          pic_index--;
+        }
+        println(w_l.get(pic_index-1).id+","+pic_index);
+      }
+      
+      if(mouseX>380 && mouseX<395 && mouseY>235 && mouseY<265)
+      { 
+        println("yAAS right");
+        println(w_l.size()+"size , index "+pic_index);
+        if(pic_index==w_l.size()-1) 
+        {
+          pic_index=0;
+        }
+        else 
+        {
+          pic_index++;
+        }
+        println(pic_index);
+        println(w_l.get(pic_index).id+","+pic_index);
+      }
     }
-    if((screen!=5)&&(mouseX > box4_x) &&  (mouseX< (size_x+box4_x)) && (mouseY> height- (2*box4_y)) && (mouseY< height - box4_y))
+    else
     {
-      new_screen=5;
-      screen=1;      //record
+      if((mouseX > box2_x ) &&  (mouseX< (size_x+box2_x) ) && (mouseY> height- (2*box1_y)) && (mouseY< height - box1_y))  // weapons button pressed
+      {
+        new_screen=3;
+        screen=1;  
+      }
+    }
+      
+    
+    if(screen!=6)  // armor
+    {
+      
+    }
+    else
+    {
+      if((mouseX > box3_x ) &&  (mouseX< (size_x +box3_x)) && (mouseY> height- (2*box1_y)) && (mouseY< height - box1_y)) // armor button pressed
+      {
+         new_screen=6;
+         screen=1;
+      }
+    }
+    
+    if(screen!=5)
+    {
+      if((mouseX > box4_x) &&  (mouseX< (size_x+box4_x)) && (mouseY> height- (2*box4_y)) && (mouseY< height - box4_y))  // record button pressed
+      {
+        new_screen=5;
+        screen=1;      //record
+      }
     }
   }
 }

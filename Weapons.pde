@@ -163,8 +163,7 @@ class Weapon_list
     // Use either this or the for loop and parameter this.size= w_l.size();
     this.id=a;
     this.name=name;
-    this.pic= dataPath("Image"+a); //this.size;
-    println(this.pic);
+    this.pic= dataPath("Image"+a+".jpg"); //this.size;
     if(b=="primary") this.type="Primary";
       else
       this.type="Secondary";

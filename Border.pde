@@ -29,6 +29,7 @@ class Border
     {
       line(1100,y_coord_copy,1100,height-y_coord_copy);
       line(1095,y_coord_copy,1095,height-y_coord_copy);
+      line(x_coord_copy, height * 0.88, 1095, height*0.88); 
       name_box();
       map_button();
       weapon_button();
@@ -43,8 +44,7 @@ class Border
     
     float box1_x=100, box1_y=30; int size_x=100, size_y=50;
    
-    line(x_coord_copy, height * 0.88, 1095, height*0.88); 
-   
+    
     if(screen==4 ||(mouseX > box1_x) &&  (mouseX< (size_x+box1_x)) && (mouseY> height- (2*box1_y)) && (mouseY< height - box1_y))
     {
       fill(131,156,165);
