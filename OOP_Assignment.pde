@@ -282,6 +282,7 @@ void mouseClicked()
         {
           pic_index3--;
         }
+        
       }
       // right arrow
       if(mouseX>380 && mouseX<395 && mouseY>235 && mouseY<265)

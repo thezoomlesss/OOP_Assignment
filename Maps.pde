@@ -73,7 +73,8 @@ class Maps
     vertex(this.pos_x + 130, this.pos_y+15);
     endShape(CLOSE);
 
-    //m_l.get(pic_index3).display_map();
+    fill(100,2,15);
+    m_l.get(pic_index3).display_map();
   }
   
 }
@@ -92,6 +93,17 @@ class Map
   
   void display_map()
   {
-    image(this.img, 250,250);
+    //image(this.img, 250,250);
+    textSize(20);
+    if(pic_index4==0)
+    {
+      text("Map size: Normal", 150,395);
+      text("Game speed : Normal", 150,417);
+    }
+    else
+    {  
+      text("Map size: Large", 150,395);
+      text("Game speed : Slow", 150,417);
+    }
   }
 }

@@ -26,9 +26,10 @@ class Profile
       if(key!=BACKSPACE && key!=ENTER)
       {
         name[index]=key;
+        name[index]=Character.toUpperCase(name[index]);
         index++;
       }
-      if(key==ENTER) 
+      if(key==ENTER && index>0) 
       {
             
         text_file();          

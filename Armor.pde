@@ -73,8 +73,8 @@ class Armor
     vertex(this.pos_x + 130, this.pos_y+15);
     endShape(CLOSE);
     
-    
-    //a_l.get(pic_index4).display_armor();
+    fill(100,2,15);
+    a_l.get(pic_index4).display_armor();
   }
 
 }
@@ -93,6 +93,18 @@ class Armors
   
   void display_armor()
   {
-    image(this.img, 250,250);
+    //image(this.img, 250,250);
+    textSize(20);
+    if(pic_index3==0)
+    {
+      text("Armor type: Light", 150,395);
+      text("Movement : Fast", 150,417);
+    }
+    else
+    {
+      text("Armor type: Heavy", 150,395);
+      text("Movement : Slow", 150,417);
+
+    }
   }
 }
