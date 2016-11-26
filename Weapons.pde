@@ -144,8 +144,10 @@ class Weapons
     //endShape(CLOSE);
    
    // Remove the "//" once you have the right pictures
-    //w_l.get(pic_index).display_image();
-    //w_l2.get(pic_index2).display_image();
+    fill(100,2,15);
+    w_l2.get(pic_index2).display_image();
+    
+    w_l.get(pic_index).display_image();
     
   }
 }
@@ -163,12 +165,23 @@ class Weapon_list
     this.id=a;
     this.name=name;
     this.pic= loadImage(dataPath("Image"+a+".jpg")); //this.size;
-    if(b=="primary") this.type="Primary";
+    if(b=="Primary") this.type="Primary";
       else
       this.type="Secondary";
   }
   void display_image()
   {
-    image(this.pic, 250,250);
+    //image(this.pic, 250,250);
+    textSize(20);
+    if(this.type=="Secondary")
+    {
+      text(this.type+" weapon: "+this.name, 510,390);
+      
+    }
+    else
+    {
+      println(this.type);
+      text(this.type+" weapon: "+this.name, 150,390);
+    }
   }
 }

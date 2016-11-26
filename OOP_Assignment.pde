@@ -142,7 +142,7 @@ void mouseClicked()
     float box2_x=100 * 2 +20;
     float box3_x= 100*3 +40;
     float box4_x=850, box4_y=50;
-    int size_x=100;
+    int size_x=100, size_y=50;
     
     if(screen==4) // map
     {
@@ -150,7 +150,7 @@ void mouseClicked()
     }
     else
     {
-      if((mouseX > box1_x) &&  (mouseX< (size_x+box1_x)) && (mouseY> height- (2*box1_y)) && (mouseY< height - box1_y))  // map button pressed
+      if((mouseX > box1_x) &&  (mouseX< (size_x+box1_x)) && (mouseY> height- (size_y+box1_y)) && (mouseY< height - box1_y))  // map button pressed
       {
         new_screen=4;
         screen=1;
@@ -218,7 +218,7 @@ void mouseClicked()
     }
     else
     {
-      if((mouseX > box2_x ) &&  (mouseX< (size_x+box2_x) ) && (mouseY> height- (2*box1_y)) && (mouseY< height - box1_y))  // weapons button pressed
+      if((mouseX > box2_x ) &&  (mouseX< (size_x+box2_x) ) && (mouseY> height- (size_y+box1_y)) && (mouseY< height - box1_y))  // weapons button pressed
       {
         new_screen=3;
         screen=1;  
@@ -232,16 +232,16 @@ void mouseClicked()
     }
     else
     {
-      if((mouseX > box3_x ) &&  (mouseX< (size_x +box3_x)) && (mouseY> height- (2*box1_y)) && (mouseY< height - box1_y)) // armor button pressed
+      if((mouseX > box3_x ) &&  (mouseX< (size_x +box3_x)) && (mouseY> height- (size_y+box1_y)) && (mouseY< height - box1_y)) // armor button pressed
       {
          new_screen=6;
          screen=1;
       }
     }
     
-    if(screen==5)
+    if(screen!=5)
     {
-      if((mouseX > box4_x) &&  (mouseX< (size_x+box4_x)) && (mouseY> height- (2*box4_y)) && (mouseY< height - box4_y))  // record button pressed
+      if((mouseX > box4_x) &&  (mouseX< (size_x+box4_x)) && (mouseY> height- (size_y + box4_y)) && (mouseY< height - box4_y))  // record button pressed
       {
         new_screen=5;
         screen=1;      //record
