@@ -146,7 +146,9 @@ class Weapons
    // Remove the "//" once you have the right pictures
     fill(100,2,15);
     w_l2.get(pic_index2).display_image();
-    
+    PImage test;
+    test=loadImage((dataPath("rsz_image1.jpg")));
+    image(test, 145,155);
     w_l.get(pic_index).display_image();
     
   }
@@ -175,13 +177,11 @@ class Weapon_list
     textSize(20);
     if(this.type=="Secondary")
     {
-      text(this.type+" weapon: "+this.name, 510,390);
-      
+      text(this.type+" weapon: "+this.name, 510,395);     
     }
     else
     {
-      println(this.type);
-      text(this.type+" weapon: "+this.name, 150,390);
+      text(this.type+" weapon: "+this.name, 145,395);
     }
   }
 }

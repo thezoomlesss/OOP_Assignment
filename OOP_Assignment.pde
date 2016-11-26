@@ -17,6 +17,8 @@
         - Use lerp for the clock to make it smoother
         - Create the file/open it and write the data/read the data ALMOST DONE
         - Make the display table translate downwards
+        
+        - Add the weapons and armors images
 
         Error when the array is full we can't press enter.  SOLVED
 */
@@ -43,6 +45,14 @@ void setup()
     w_l2.add(type_weapon_list);  
   }
   
+  Armors ar;
+  for(int index_arraylist=1;index_arraylist<3;index_arraylist++)
+  {
+    ar=new Armors(index_arraylist); 
+    a_l.add(ar);  
+  }
+  
+  
 }
 
 
@@ -61,6 +71,8 @@ String Profile, file;
 
 ArrayList <Weapon_list> w_l= new ArrayList <Weapon_list>();
 ArrayList <Weapon_list> w_l2= new ArrayList <Weapon_list>();
+ArrayList <Armors> a_l= new ArrayList <Armors>();
+
 
 Border display=new Border();
 Clock draw= new Clock();  
@@ -71,11 +83,11 @@ Show_Records table=new Show_Records();
 Profile disp= new Profile();
 Logo logo= new Logo();  
 Maps map=new Maps();
-Armor armor=new Armor();  
+Armor armor=new Armor(250,250);  
 
 // test variables
 int pic_index=1, pic_index2=1;
-
+int pic_index3=1; // for the armor
 
 void draw()
 {
@@ -138,10 +150,10 @@ void mouseClicked()
   if( screen == 3 || screen == 4 || screen == 6 || screen == 5)
   {
     
-    float box1_x=100, box1_y=50;
+    float box1_x=100, box1_y=30;
     float box2_x=100 * 2 +20;
     float box3_x= 100*3 +40;
-    float box4_x=850, box4_y=50;
+    float box4_x=850, box4_y=30;
     int size_x=100, size_y=50;
     
     if(screen==4) // map
@@ -228,7 +240,32 @@ void mouseClicked()
     
     if(screen==6)  // armor
     {
-      
+       //left arrow
+      if(mouseX>105 && mouseX<125 && mouseY>235 && mouseY<265)
+      { 
+        if(pic_index3==0) 
+        {
+          pic_index3=a_l.size()-1;
+        }
+        else 
+        {
+          pic_index3--;
+        }
+        println(pic_index3);
+      }
+      // right arrow
+      if(mouseX>380 && mouseX<395 && mouseY>235 && mouseY<265)
+      { 
+        if(pic_index3==a_l.size()-1) 
+        {
+          pic_index3=0;
+        }
+        else 
+        {
+          pic_index3++;
+        }
+        println(pic_index3);
+      }
     }
     else
     {
@@ -239,7 +276,10 @@ void mouseClicked()
       }
     }
     
-    if(screen!=5)
+    if(screen==5)
+    {
+    }
+    else
     {
       if((mouseX > box4_x) &&  (mouseX< (size_x+box4_x)) && (mouseY> height- (size_y + box4_y)) && (mouseY< height - box4_y))  // record button pressed
       {
