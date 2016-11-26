@@ -145,12 +145,12 @@ class Weapons
    
    // Remove the "//" once you have the right pictures
     fill(100,2,15);
-    w_l2.get(pic_index2).display_image();
     PImage test;
     test=loadImage((dataPath("rsz_image1.jpg")));
     image(test, 145,155);
-    w_l.get(pic_index).display_image();
-    
+    //w_l.get(pic_index).display_image();
+    //w_l2.get(pic_index2).display_image();
+      
   }
 }
 

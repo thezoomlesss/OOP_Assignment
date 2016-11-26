@@ -12,9 +12,7 @@ class Armor
   void display()
   {
     display.border(1);
-    logo.display1();
-    logo.display2();
-    logo.display3();
+    draw.clock();
     display.name_box();
     
     fill(100,2,15);
@@ -74,7 +72,9 @@ class Armor
     vertex(this.pos_x + 130, this.pos_y-15);
     vertex(this.pos_x + 130, this.pos_y+15);
     endShape(CLOSE);
-
+    
+    
+    //a_l.get(pic_index4).display_armor();
   }
 
 }

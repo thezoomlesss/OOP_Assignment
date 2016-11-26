@@ -52,6 +52,12 @@ void setup()
     a_l.add(ar);  
   }
   
+  Map mp;
+  for(int index_arraylist=1;index_arraylist<3;index_arraylist++)
+  {
+    mp=new Map(index_arraylist); 
+    m_l.add(mp);  
+  }
   
 }
 
@@ -72,7 +78,7 @@ String Profile, file;
 ArrayList <Weapon_list> w_l= new ArrayList <Weapon_list>();
 ArrayList <Weapon_list> w_l2= new ArrayList <Weapon_list>();
 ArrayList <Armors> a_l= new ArrayList <Armors>();
-
+ArrayList <Map> m_l= new ArrayList<Map>();
 
 Border display=new Border();
 Clock draw= new Clock();  
@@ -82,13 +88,13 @@ Weapons get=new Weapons(250,250);
 Show_Records table=new Show_Records();
 Profile disp= new Profile();
 Logo logo= new Logo();  
-Maps map=new Maps();
+Maps map=new Maps(250,250);
 Armor armor=new Armor(250,250);  
 
 // test variables
-int pic_index=1, pic_index2=1;
+int pic_index=1, pic_index2=1; // for the weapons primary and secondary
 int pic_index3=1; // for the armor
-
+int pic_index4=1; // for the map
 void draw()
 {
   game_state(screen);
@@ -158,7 +164,32 @@ void mouseClicked()
     
     if(screen==4) // map
     {
-        
+         //left arrow
+      if(mouseX>105 && mouseX<125 && mouseY>235 && mouseY<265)
+      { 
+        if(pic_index4==0) 
+        {
+          pic_index4=m_l.size()-1;
+        }
+        else 
+        {
+          pic_index4--;
+        }
+      }
+      // right arrow
+      if(mouseX>380 && mouseX<395 && mouseY>235 && mouseY<265)
+      { 
+        if(pic_index4==m_l.size()-1) 
+        {
+          pic_index4=0;
+        }
+        else 
+        {
+          pic_index4++;
+        }
+      }
+      
+      
     }
     else
     {
@@ -251,7 +282,6 @@ void mouseClicked()
         {
           pic_index3--;
         }
-        println(pic_index3);
       }
       // right arrow
       if(mouseX>380 && mouseX<395 && mouseY>235 && mouseY<265)
@@ -264,7 +294,7 @@ void mouseClicked()
         {
           pic_index3++;
         }
-        println(pic_index3);
+        
       }
     }
     else
