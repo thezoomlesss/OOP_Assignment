@@ -35,6 +35,8 @@ class Border
       weapon_button();
       armor_button();
       record_button();
+      
+      save_button();
     }
     
   } // end border
@@ -131,7 +133,7 @@ class Border
   
   void record_button()
   {
-    float box4_x=850, box4_y=30, size_x=100, size_y=50;
+    float box4_x=920, box4_y=30, size_x=100, size_y=50;
     
     if(screen==5 ||(mouseX > box4_x) &&  (mouseX< (size_x+box4_x)) && (mouseY> height- (size_y+box4_y)) && (mouseY< height - box4_y))
     {
@@ -148,8 +150,7 @@ class Border
     vertex(size_x+ box4_x -10,height- size_y-box4_y);
     vertex(box4_x+10, height- size_y -box4_y);   // top left corner
     vertex(box4_x, height- ((size_y + box4_y)-10)); 
-    endShape(CLOSE);
-    
+    endShape(CLOSE); 
     fill(200,2,15);
     textSize(20);
     text("Records",box4_x+ (box4_x *0.013f), height- (box4_y+(box4_y *0.3f)));
@@ -168,5 +169,53 @@ class Border
       line(1090-name_length,y_coord_copy +40,1095,y_coord_copy +40);
   }
 
-  
+  void save_button()
+  {
+    float box4_x=920, box4_y=120, size_x=90, size_y=35;
+
+    fill(1,2,15);
+    beginShape();
+    vertex(box4_x-50, height-box4_y-200);
+    vertex(box4_x-50, height-box4_y+10);
+    vertex(box4_x+150, height-box4_y+10);
+    vertex(box4_x+150, height-box4_y-200);
+    
+    endShape(CLOSE);
+    
+    // button for the save
+    if(screen==5 ||(mouseX > box4_x) &&  (mouseX< (size_x+box4_x)) && (mouseY> height- (size_y+box4_y)) && (mouseY< height - box4_y))
+    {
+      fill(131,156,165);  
+    }
+    else
+    {
+      fill(1,2,15);
+    }        
+    // button box
+    beginShape();
+    vertex(box4_x+5, height- box4_y);
+    vertex(size_x +5 + box4_x,height- box4_y);
+    vertex(size_x +5 + box4_x,height- ((size_y+box4_y-10)));  // top right corner
+    vertex(size_x +5 + box4_x -10,height- size_y-box4_y);
+    vertex(box4_x+5+10, height- size_y -box4_y);   // top left corner
+    vertex(box4_x +5, height- ((size_y + box4_y)-10)); 
+    endShape(CLOSE);
+    
+    stroke(25,45,90);    
+    strokeWeight(2);
+    fill(200,2,15);
+    textSize(19);
+    text("Loadout:", box4_x-50+5, height-box4_y-200+20 );
+    
+    
+    textSize(14);
+    text("Primary: "+ w_l.get(pic_index).name, box4_x-50+15, height-box4_y-200+65);
+    text("Secondary: "+ w_l2.get(pic_index2).name, box4_x-50+15, height-box4_y-200+85);
+    text("Armor: "+ a_l.get(pic_index3).name, box4_x-50+15, height-box4_y-200+105);
+    text("Map: "+ m_l.get(pic_index4).name, box4_x-50+15, height-box4_y-200+125);
+    
+    textSize(16);
+    text("Save", box4_x+33, height- box4_y-11);
+      
+  }
 }

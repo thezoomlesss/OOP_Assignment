@@ -83,11 +83,31 @@ class Armors
 {
   int id;
   PImage img;
+  String name;
   
   Armors(int a)
   {
     this.id=a;
     this.img= loadImage(dataPath("Image_a"+a+".jpg"));
+    
+    switch(a)
+    {
+      case 1:
+      {
+        this.name= "Yuna-SO";
+        break;
+      }
+      case 2:
+      {
+        this.name= "RT-200";
+        break;
+      }
+      default:
+      {
+        this.name= "K3-"+a;
+        break;
+      }
+    }
     
   }
   

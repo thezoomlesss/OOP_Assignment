@@ -36,12 +36,12 @@ void setup()
   Weapon_list type_weapon_list;
   for(int index_arraylist=1;index_arraylist<4;index_arraylist++)
   {
-    type_weapon_list=new Weapon_list(index_arraylist,"Primary","test"+index_arraylist); 
+    type_weapon_list=new Weapon_list(index_arraylist,"Primary"); 
     w_l.add(type_weapon_list);  
   }
   for(int index_arraylist=4;index_arraylist<7;index_arraylist++)
   {
-    type_weapon_list=new Weapon_list(index_arraylist,"Secondary","test"+index_arraylist); 
+    type_weapon_list=new Weapon_list(index_arraylist,"Secondary"); 
     w_l2.add(type_weapon_list);  
   }
   

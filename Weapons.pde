@@ -124,30 +124,7 @@ class Weapons
     endShape(CLOSE);
     
     
-    
-    //The stats box
-    //noFill();
-    //beginShape();
-    
-    //vertex(this.pos_x + 4* draw_size, this.pos_y - corner);  // top right dot
-    //vertex(this.pos_x + 2* draw_size, this.pos_y -  corner); // top left dot
-    //vertex(this.pos_x + 2* draw_size, this.pos_y + 2 * corner); // bottom left dot
-    //vertex(this.pos_x + 4* draw_size, this.pos_y + 2 * corner); // bottom right dot
-    
-    //curveVertex(this.pos_x + 4* draw_size, this.pos_y + 2 * corner);
-    //curveVertex(this.pos_x + 4.3f* draw_size, this.pos_y + corner);
-   // curveVertex(this.pos_x + 4.4f* draw_size, this.pos_y + 0.5f* corner );
-    //curveVertex(this.pos_x + 4.3f* draw_size, this.pos_y  );
-    
-    //curveVertex(this.pos_x + 4* draw_size, this.pos_y - corner);
-    
-    //endShape(CLOSE);
-   
-   // Remove the "//" once you have the right pictures
     fill(100,2,15);
-    //PImage test;
-    //test=loadImage((dataPath("rsz_image1.jpg")));
-    //image(test, 145,155);
     w_l.get(pic_index).display_image();
     w_l2.get(pic_index2).display_image();
       
@@ -161,9 +138,8 @@ class Weapon_list
   String type;
   PImage pic;
   
-  Weapon_list(int a, String b, String name)
+  Weapon_list(int a, String b)
   {
-    // Use either this or the for loop and parameter this.size= w_l.size();
     this.id=a;
     
     switch(a)
@@ -222,7 +198,7 @@ class Weapon_list
     if(this.type=="Secondary")
     {
       text(this.type+" weapon: "+this.name, 490,400);     
-      image(this.pic, 515,200);
+      image(this.pic, 520,210);
     
     }
     else

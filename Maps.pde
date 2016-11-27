@@ -83,11 +83,31 @@ class Map
 {
   int id;
   PImage img;
+  String name;
   
   Map(int a)
   {
     this.id=a;
     this.img= loadImage(dataPath("Image_m"+a+".jpg"));
+    switch(a)
+    {
+      case 1:
+      {
+        this.name= "Eagle Nebula";
+        break;
+      }
+      case 2:
+      {
+        this.name= "Gemini Sigma";
+        break;
+      }
+      default:
+      {
+        this.name= "Nebula-"+a;
+        break;
+      }
+    }
+    
     
   }
   
