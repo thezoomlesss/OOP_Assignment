@@ -182,6 +182,7 @@ class Border
     
     endShape(CLOSE);
     
+    
     // button for the save
     if(screen==5 ||(mouseX > box4_x) &&  (mouseX< (size_x+box4_x)) && (mouseY> height- (size_y+box4_y)) && (mouseY< height - box4_y))
     {
@@ -216,6 +217,9 @@ class Border
     
     textSize(16);
     text("Save", box4_x+33, height- box4_y-11);
-      
+  
+    
   }
+  
+  
 }

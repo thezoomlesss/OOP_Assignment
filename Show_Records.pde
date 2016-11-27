@@ -6,6 +6,10 @@ class Show_Records
   {
     table=loadTable(dataPath(file+".txt"), "header, tsv");   
   }
+  void store()
+  {
+    
+  }
   void display()   // NOW HERE WORKING ON THIS
   {
     display.border(0);

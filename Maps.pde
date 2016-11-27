@@ -117,13 +117,15 @@ class Map
     textSize(20);
     if(pic_index4==0)
     {
-      text("Map size: Normal", 150,395);
-      text("Game speed : Normal", 150,417);
+      text("Map name: "+ this.name, 150,395);
+      text("Map size: Normal", 150,420);
+      text("Game speed : Normal", 150,440);
     }
     else
-    {  
-      text("Map size: Large", 150,395);
-      text("Game speed : Slow", 150,417);
+    { 
+      text("Map name: "+ this.name, 150,395);
+      text("Map size: Large", 150,420);
+      text("Game speed : Slow", 150,440);
     }
   }
 }
