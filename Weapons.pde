@@ -145,11 +145,11 @@ class Weapons
    
    // Remove the "//" once you have the right pictures
     fill(100,2,15);
-    PImage test;
-    test=loadImage((dataPath("rsz_image1.jpg")));
-    image(test, 145,155);
-    //w_l.get(pic_index).display_image();
-    //w_l2.get(pic_index2).display_image();
+    //PImage test;
+    //test=loadImage((dataPath("rsz_image1.jpg")));
+    //image(test, 145,155);
+    w_l.get(pic_index).display_image();
+    w_l2.get(pic_index2).display_image();
       
   }
 }
@@ -165,23 +165,71 @@ class Weapon_list
   {
     // Use either this or the for loop and parameter this.size= w_l.size();
     this.id=a;
-    this.name=name;
-    this.pic= loadImage(dataPath("Image"+a+".jpg")); //this.size;
+    
+    switch(a)
+    {
+      case 1:
+      {
+        this.name="K-8 Avenger";
+        break;
+      }
+      
+      case 2:
+      {
+        this.name="R-25 Hornet";
+        
+        break;
+      }
+      
+      case 3:
+      {
+        this.name="M-99 Saber";
+        break;
+      }
+      case 4:
+      {
+        this.name="Arc Pistol";
+        break;
+      }
+      case 5:
+      {
+        this.name="S4-358 Talon";
+        break;
+      }
+      case 6:
+      {
+        this.name="M-5 Phalanx";
+        break;
+      }
+      
+      default:
+      {
+        this.name="X-Victus"+ "0"+ this.id;
+        break;
+      }
+    }
+    
+    this.pic= loadImage(dataPath("Image"+a+".png")); //this.size;
     if(b=="Primary") this.type="Primary";
       else
       this.type="Secondary";
   }
   void display_image()
   {
-    //image(this.pic, 250,250);
+    
+    
     textSize(20);
     if(this.type=="Secondary")
     {
-      text(this.type+" weapon: "+this.name, 510,395);     
+      text(this.type+" weapon: "+this.name, 490,400);     
+      image(this.pic, 515,200);
+    
     }
     else
     {
-      text(this.type+" weapon: "+this.name, 145,395);
+      text(this.type+" weapon: "+this.name, 125,395);
+      image(this.pic, 150,205);
+    
     }
   }
 }
