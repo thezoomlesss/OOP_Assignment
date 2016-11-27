@@ -153,7 +153,6 @@ class Weapon_list
       case 2:
       {
         this.name="R-25 Hornet";
-        
         break;
       }
       
@@ -192,8 +191,6 @@ class Weapon_list
   }
   void display_image()
   {
-    
-    
     textSize(20);
     if(this.type=="Secondary")
     {
@@ -205,7 +202,73 @@ class Weapon_list
     {
       text(this.type+" weapon: "+this.name, 125,395);
       image(this.pic, 150,205);
+    }// end else
     
-    }
-  }
-}
+    textSize(18);
+    switch(this.id)
+    {
+      case 1:
+      {
+        text("Damage: V.High", 140,440);     
+        text("Fire rate: Medium", 140,470);     
+        text("Reload speed: Slow", 140,500);     
+        text("Clip size: Low", 140,530);             
+        break;
+      }
+      
+      case 2:
+      {
+        text("Damage: Medium", 140,440);     
+        text("Fire rate: High", 140,470);     
+        text("Reload speed: Medium", 140,500);     
+        text("Clip size: Low", 140,530);             
+        
+        break;
+      }
+      
+      case 3:
+      {
+        text("Damage: Low", 140,440);     
+        text("Fire rate: High", 140,470);     
+        text("Reload speed: Fast", 140,500);     
+        text("Clip size: High", 140,530);             
+        
+        break;
+      }
+      case 4:
+      {
+        text("Damage: Medium", 505,440);     
+        text("Fire rate: Medium", 505,470);     
+        text("Reload speed: Slow", 505,500);     
+        text("Clip size: Medium", 505,530);             
+        
+        break;
+      }
+      case 5:
+      {
+        text("Damage: V.High", 505,440);     
+        text("Fire rate: Slow", 505,470);     
+        text("Reload speed: Medium", 505,500);     
+        text("Clip size: Low", 505,530);
+        break;
+      }
+      case 6:
+      {
+        text("Damage: Low", 505,440);     
+        text("Fire rate: High", 505,470);     
+        text("Reload speed: Medium", 505,500);     
+        text("Clip size: High", 505,530);
+        break;
+      }
+      
+      default:
+      {
+        text("Damage: Missing info", 490,440);     
+        text("Fire rate: Missing info", 490,470);     
+        text("Reload speed: Missing info", 490,500);     
+        
+        break;
+      }
+    }// end switch
+  } //end display image
+} // end class

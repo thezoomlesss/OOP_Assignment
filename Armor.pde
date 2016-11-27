@@ -74,7 +74,7 @@ class Armor
     endShape(CLOSE);
     
     fill(100,2,15);
-    a_l.get(pic_index4).display_armor();
+    a_l.get(pic_index3).display_armor();
   }
 
 }
@@ -88,13 +88,13 @@ class Armors
   Armors(int a)
   {
     this.id=a;
-    this.img= loadImage(dataPath("Image_a"+a+".jpg"));
+    this.img= loadImage(dataPath("Image_a"+a+".png"));
     
     switch(a)
     {
       case 1:
       {
-        this.name= "Yuna-SO";
+        this.name= "Yuna-300";
         break;
       }
       case 2:
@@ -113,7 +113,8 @@ class Armors
   
   void display_armor()
   {
-    //image(this.img, 250,250);
+    image(this.img, 185,150);
+    
     textSize(20);
     if(pic_index3==0)
     {

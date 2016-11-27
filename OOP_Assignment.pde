@@ -159,7 +159,7 @@ void mouseClicked()
     float box1_x=100, box1_y=30;
     float box2_x=100 * 2 +20;
     float box3_x= 100*3 +40;
-    float box4_x=850, box4_y=30;
+    float box4_x=920, box4_y=30;
     int size_x=100, size_y=50;
     
     if(screen==4) // map
