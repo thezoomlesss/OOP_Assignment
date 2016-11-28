@@ -81,13 +81,14 @@ ArrayList <Weapon_list> w_l= new ArrayList <Weapon_list>();
 ArrayList <Weapon_list> w_l2= new ArrayList <Weapon_list>();
 ArrayList <Armors> a_l= new ArrayList <Armors>();
 ArrayList <Map> m_l= new ArrayList<Map>();
+ArrayList <Record> r_l= new ArrayList<Record>();
 
 Border display=new Border();
 Clock draw= new Clock();  
 Loading paint= new Loading();
 Loading2 create= new Loading2(730, 600); 
 Weapons get=new Weapons(250,250);
-Show_Records table=new Show_Records();
+Show_Records table_record=new Show_Records();
 Profile disp= new Profile();
 Logo logo= new Logo();  
 Maps map=new Maps(250,250);
@@ -134,7 +135,7 @@ void game_state(int a)
     }
     case 5:
     {
-      table.display(); // display  records
+      table_record.display(); // display  records
       break;
     }
     case 6: 
@@ -324,11 +325,13 @@ void mouseClicked()
     if(mouseX>box4_x-50 && mouseX<box4_x+150 && mouseY>height-box4_y-200 && mouseY<height-box4_y+10)
     {
       save_cond=true;
+      new_screen=5;  // switching to the show records page
+      screen=1;
     }
     if(mouseX>width*0.465 && mouseX<width*0.495 && mouseY>height*0.56 && mouseY<height*0.595)
     {
       save_cond=false;
-      table.store();
+      table_record.store();
     }
     
     

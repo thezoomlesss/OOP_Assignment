@@ -75,7 +75,6 @@ class Profile
       if(f.exists())
       {
         println("The profile already exists");
-        table.load(); // Loading the table
         new_screen=3; // This will make it go through screen 2 then to screen 3
         screen=2; // This will run for 3 seconds and then it will go to screen 3
         
@@ -90,7 +89,6 @@ class Profile
                     // print header to file
         
         profile_txt.close(); 
-        table.load();  // loading the table
         new_screen=3; // This will make it go through screen 2 then to screen 3
         screen=2; // This will run for 3 seconds and then it will go to screen 3
         

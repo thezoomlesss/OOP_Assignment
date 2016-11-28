@@ -127,5 +127,5 @@ class Armors
       text("Movement : Slow", 150,417);
 
     }
-  }
+  }// end display_armor()
 }
