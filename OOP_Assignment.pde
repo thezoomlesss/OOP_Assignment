@@ -54,7 +54,7 @@ void setup()
   }
   
   Map mp;
-  for(int index_arraylist=1;index_arraylist<3;index_arraylist++)
+  for(int index_arraylist=1;index_arraylist<5;index_arraylist++)
   {
     mp=new Map(index_arraylist); 
     m_l.add(mp);  
@@ -325,8 +325,7 @@ void mouseClicked()
     if(mouseX>box4_x-50 && mouseX<box4_x+150 && mouseY>height-box4_y-200 && mouseY<height-box4_y+10)
     {
       save_cond=true;
-      new_screen=5;  // switching to the show records page
-      screen=1;
+      
     }
     if(mouseX>width*0.465 && mouseX<width*0.495 && mouseY>height*0.56 && mouseY<height*0.595)
     {
@@ -349,6 +348,16 @@ void close_save()
       textSize(22);
       text("Saved!",width*0.46, height*0.51);
       textSize(18);
+      
+      if(mouseX>width*0.465 && mouseX<width*0.495 && mouseY>height*0.56 && mouseY<height*0.595)
+      {
+        fill(131,156,165);
+      }
+      else
+      {
+        fill(200,2,15);
+      
+      }
       text("OK",width*0.473, height*0.58);
     }
 }

@@ -1,3 +1,6 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;  
+  
 class Show_Records
 {
   
@@ -5,8 +8,7 @@ class Show_Records
   {
     Table table = loadTable(file+".txt", "tsv");
    
-     int rowCount = table.getRowCount();
-   
+     int rowCount = table.getRowCount();   
      for(int i = 0; i < rowCount; i++)
      {
        Record one_line = new Record(table.getInt(i,0), table.getInt(i,1), table.getInt(i,2), table.getInt(i,3));
@@ -15,8 +17,22 @@ class Show_Records
   } // end load
   
   void store()
-  {
+  { 
+    try 
+    {
+      FileWriter output = new FileWriter(dataPath(file+".txt"),true); //the true will append the new data
+      output.write(pic_index+"\t"+pic_index2+"\t"+pic_index3+"\t"+pic_index4+"\n");
+      output.close();
+    }
+    catch(IOException e) 
+    {
+      println("ERROR on writing in the file");
+      e.printStackTrace();
+    }
     
+    
+    
+      
   }
   
   
@@ -33,17 +49,17 @@ class Show_Records
       Record example = r_l.get(i);
       switch(example.primary)
       {
-        case 1:
+        case 0:
         {
           primary1="K-8 Avenger";
           break;
         }
-        case 2:
+        case 1:
         {
           primary1="R-25 Hornet";
           break;
         }
-        case 3:
+        case 2:
         {
           primary1="M-99 Saber";
           break;
@@ -56,17 +72,17 @@ class Show_Records
       
       switch(example.secondary)
       {
-        case 1:
+        case 0:
         {
           secondary1="Arc Pistol";
           break;
         }
-        case 2:
+        case 1:
         {
           secondary1="S4-358 Talon";
           break;
         }
-        case 3:
+        case 2:
         {
           secondary1="M-5 Phalanx";
           break;
@@ -79,12 +95,12 @@ class Show_Records
       
       switch(example.armor)
       {
-        case 1:
+        case 0:
         {
           armor1="Yuna-300";
           break;
         }
-        case 2:
+        case 1:
         {
           armor1="RT-200";
           break;
@@ -97,12 +113,12 @@ class Show_Records
       
       switch(example.map)
       {
-        case 1:
+        case 0:
         {
           map1="Eagle Nebula";
           break;
         }
-        case 2:
+        case 1:
         {
           map1="Gemini Sigma";
           break;

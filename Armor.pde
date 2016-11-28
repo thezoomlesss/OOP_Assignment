@@ -116,7 +116,7 @@ class Armors
     image(this.img, 185,150);
     
     textSize(20);
-    if(pic_index3==0)
+    if(pic_index3==1)
     {
       text("Armor type: Light", 150,395);
       text("Movement : Fast", 150,417);

@@ -18,7 +18,7 @@ class Maps
     fill(100,2,15);
     strokeWeight(2);
     textSize(30);
-    text("Choose an armor:", 50, 80);
+    text("Choose a map:", 50, 80);
     stroke(25,45,90);    
     
     fill(1,2,15);
@@ -74,7 +74,7 @@ class Maps
     endShape(CLOSE);
 
     fill(100,2,15);
-    m_l.get(pic_index3).display_map();
+    m_l.get(pic_index4).display_map();
   }
   
 }
@@ -88,7 +88,7 @@ class Map
   Map(int a)
   {
     this.id=a;
-    this.img= loadImage(dataPath("Image_m"+a+".jpg"));
+    this.img= loadImage(dataPath("Image_m"+a+".png"));
     switch(a)
     {
       case 1:
@@ -99,6 +99,16 @@ class Map
       case 2:
       {
         this.name= "Gemini Sigma";
+        break;
+      }
+      case 3:
+      {
+        this.name= "Pangaea Nexus";
+        break;
+      }
+      case 4:
+      {
+        this.name= "Sentry Omega";
         break;
       }
       default:
@@ -113,19 +123,42 @@ class Map
   
   void display_map()
   {
-    //image(this.img, 250,250);
+    image(this.img, 150,150);
     textSize(20);
-    if(pic_index4==0)
+    switch(pic_index4)
     {
-      text("Map name: "+ this.name, 150,395);
-      text("Map size: Normal", 150,420);
-      text("Game speed : Normal", 150,440);
+      case 0:
+      {
+        text("Map name: "+ this.name, 150,395);
+        text("Map size: Large", 150,420);
+        text("Game speed : Slow", 150,440);
+        break;
+      }
+      
+      case 1:
+      {
+        text("Map name: "+ this.name, 150,395);
+        text("Map size: Small", 150,420);
+        text("Game speed : Fast", 150,440); 
+        break;
+      }
+      case 2:
+      {
+        text("Map name: "+ this.name, 150,395);
+        text("Map size: Normal", 150,420);
+        text("Game speed : Normal", 150,440);
+        break;
+      }
+      case 3:
+      {
+        text("Map name: "+ this.name, 150,395);
+        text("Map size: V.Large", 150,420);
+        text("Game speed : V.Slow", 150,440);
+        break;
+      }
     }
-    else
-    { 
-      text("Map name: "+ this.name, 150,395);
-      text("Map size: Large", 150,420);
-      text("Game speed : Slow", 150,440);
-    }
+     
+      
+    
   }
 }
