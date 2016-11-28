@@ -1,20 +1,62 @@
 import java.io.BufferedWriter;
 import java.io.FileWriter;  
-  
+import java.io.File;
+
 class Show_Records
 {
   
+  
   void load()
   {
-    Table table = loadTable(file+".txt", "tsv");
-   
-     int rowCount = table.getRowCount();   
-     for(int i = 0; i < rowCount; i++)
-     {
+    if(load_cond == false)
+    {
+      Table table = loadTable(file+".txt", "tsv");
+     
+      int rowCount = table.getRowCount();   
+      for(int i = 0; i < rowCount; i++)
+      {
+       
        Record one_line = new Record(table.getInt(i,0), table.getInt(i,1), table.getInt(i,2), table.getInt(i,3));
        r_l.add(one_line);
-     }   
+       
+     } //end for
+     
+     load_cond=true;
+    } // end if
+    
   } // end load
+  
+  void delete_record()
+  {
+    /*
+    String fileName = dataPath(file+".txt");
+    File f = new File(fileName);
+    if (f.exists()) 
+    {
+      
+      f.delete();
+    }
+    else
+    {
+      println("Not deleted");
+    }
+    */
+    
+    try 
+    {
+      FileWriter output = new FileWriter(dataPath(file+".txt"),false); //the false will reset the new data
+      println("Deleted");
+      output.close();                    // DO A POP UP HERE
+    }
+    catch(IOException e) 
+    {
+      println("ERROR on writing in the file");
+      e.printStackTrace();
+    }
+    
+    
+    
+  }
   
   void store()
   { 
@@ -29,15 +71,13 @@ class Show_Records
       println("ERROR on writing in the file");
       e.printStackTrace();
     }
-    
-    
-    
-      
   }
   
-  
+    
   void display()   // NOW HERE WORKING ON THIS
   {
+    
+    float x_crd= width*0.04, y_crd= height * 0.05, x_size=width-100, y_size=40;
     String primary1, secondary1, armor1, map1;
     
     display.border(0);
@@ -128,16 +168,30 @@ class Show_Records
           map1="Nebula-"+example.map;
         }
       } // end switch map
-      println(primary1+" "+ secondary1+" "+armor1+" "+map1);
-    } // end for
-    
-    
+     if(i<14)
+     {
+       stroke(100,2,15); 
+       rect(x_crd, y_crd, x_size, y_size);
+       stroke(25,45,90);    
+       y_crd+=y_size;
+       fill(200,2,15);
+       text(" Primary: "+primary1,x_crd+15,y_crd - 10);
+       text("Secondary: "+secondary1, x_crd + 365, y_crd-10);
+       text("Armor: "+ armor1, x_crd +715, y_crd-10);
+       text("Map: "+ map1, x_crd +965, y_crd-10);
+       
+       fill(1,2,15);
+     }
+     
+  } // end for 
+      
     display.map_button();
     display.weapon_button();
     display.armor_button();
     display.record_button();
-    
-  }
+      
+  } // end void display
+  
 }  // end class show_record
 
 class Record

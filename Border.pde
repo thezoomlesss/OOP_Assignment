@@ -37,8 +37,9 @@ class Border
       record_button();
       
       save_button();
+      
     }
-    
+    delete_button();
   } // end border
   
   void map_button()
@@ -221,5 +222,35 @@ class Border
     
   }
   
+  void delete_button()
+  {
+    if(screen==5)
+    {
+      float box4_x=width*0.45, box4_y=100, size_x=120, size_y=45;
+      
+      if((mouseX > box4_x) &&  (mouseX< (size_x+box4_x)) && (mouseY> height- (size_y+box4_y)) && (mouseY< height - box4_y))
+      {
+        fill(131,156,165);  
+      }
+      else
+      {
+        fill(1,2,15);
+      }
+      
+      beginShape();
+      vertex(box4_x+5, height- box4_y);
+      vertex(size_x +5 + box4_x,height- box4_y);
+      vertex(size_x +5 + box4_x,height- ((size_y+box4_y-10)));  // top right corner
+      vertex(size_x +5 + box4_x -10,height- size_y-box4_y);
+      vertex(box4_x+5+10, height- size_y -box4_y);   // top left corner
+      vertex(box4_x +5, height- ((size_y + box4_y)-10)); 
+      endShape(CLOSE);
+      
+      fill(200,2,15);
+      textSize(16);
+      text("Delete all", box4_x+30, height- box4_y-11);
   
+      fill(1,2,15);
+    }
+  }
 }

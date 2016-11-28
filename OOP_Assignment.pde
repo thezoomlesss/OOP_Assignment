@@ -69,9 +69,9 @@ float x=255,y=100,z=140;  // The colors from fill_clock and display_clock
 int condition=0;     // Variable used for the color of the loading screen. Leave it like this
 float image_width, image_height;
 int x_coord=10, y_coord=10;
-boolean save_cond;
+boolean save_cond, load_cond=false;
 int x_coord_copy=x_coord+5, y_coord_copy=y_coord+5; 
-int index=0, screen=0, new_screen;
+int index=0, screen=0, new_screen, index_key=0;
 String Profile, file;
 
 
@@ -161,6 +161,8 @@ void mouseClicked()
   float box2_x=100 * 2 +20;
   float box3_x= 100*3 +40;
   float box4_x=920, box4_y=30;
+  float box5_x=width*0.45, box5_y=100, size_x1=120, size_y1=45;
+      
   int size_x=100, size_y=50;
   
   if(screen==4) // map
@@ -310,6 +312,12 @@ void mouseClicked()
   
   if(screen==5)
   {
+    if((mouseX > box5_x) &&  (mouseX< (size_x1+box5_x)) && (mouseY> height- (size_y1+box5_y)) && (mouseY< height - box5_y))
+    {
+      println("CLICKED");
+      table_record.delete_record();
+      
+    }
   }
   else
   {
@@ -322,17 +330,21 @@ void mouseClicked()
     
   if( screen == 3 || screen == 4 || screen == 6 ) 
   {
-    if(mouseX>box4_x-50 && mouseX<box4_x+150 && mouseY>height-box4_y-200 && mouseY<height-box4_y+10)
+    if(save_cond==false)
     {
-      save_cond=true;
-      
+      if(mouseX>box4_x+5 && mouseX<box4_x+95 && mouseY>height-box4_y-125 && mouseY<height-box4_y-90)
+      {
+        save_cond=true;
+        table_record.store();
+      }
     }
-    if(mouseX>width*0.465 && mouseX<width*0.495 && mouseY>height*0.56 && mouseY<height*0.595)
+    else
     {
-      save_cond=false;
-      table_record.store();
+      if(mouseX>width*0.465 && mouseX<width*0.495 && mouseY>height*0.56 && mouseY<height*0.595)
+      {
+        save_cond=false;
+      }
     }
-    
     
   } //end if (s 3,4,5,6)
 } // end mouse clicked 
