@@ -69,7 +69,7 @@ float x=255,y=100,z=140;  // The colors from fill_clock and display_clock
 int condition=0;     // Variable used for the color of the loading screen. Leave it like this
 float image_width, image_height;
 int x_coord=10, y_coord=10;
-boolean save_cond, load_cond=false;
+boolean save_cond, load_cond=false, delete_cond;
 int x_coord_copy=x_coord+5, y_coord_copy=y_coord+5; 
 int index=0, screen=0, new_screen, index_key=0;
 String Profile, file;
@@ -102,6 +102,7 @@ void draw()
 {
   game_state(screen);
   close_save();
+  close_delete();
 }
 
 void game_state(int a)
@@ -312,12 +313,22 @@ void mouseClicked()
   
   if(screen==5)
   {
-    if((mouseX > box5_x) &&  (mouseX< (size_x1+box5_x)) && (mouseY> height- (size_y1+box5_y)) && (mouseY< height - box5_y))
+    if(delete_cond==false)
     {
-      println("CLICKED");
-      table_record.delete_record();
-      
+      if((mouseX > box5_x) &&  (mouseX< (size_x1+box5_x)) && (mouseY> height- (size_y1+box5_y)) && (mouseY< height - box5_y))
+      {
+        delete_cond=true;
+        table_record.delete_record();
+      }
     }
+    else
+    {
+      if(mouseX>width*0.465 && mouseX<width*0.495 && mouseY>height*0.56 && mouseY<height*0.595)
+      {
+        delete_cond=false;
+      }
+    }
+    
   }
   else
   {
@@ -359,6 +370,30 @@ void close_save()
       
       textSize(22);
       text("Saved!",width*0.46, height*0.51);
+      textSize(18);
+      
+      if(mouseX>width*0.465 && mouseX<width*0.495 && mouseY>height*0.56 && mouseY<height*0.595)
+      {
+        fill(131,156,165);
+      }
+      else
+      {
+        fill(200,2,15);
+      
+      }
+      text("OK",width*0.473, height*0.58);
+    }
+}
+void close_delete()
+{
+  if(delete_cond==true)
+    {
+      fill(1,2,25);
+      rect(width*0.4, height*0.46,250,120);
+      fill(200,2,15);
+      
+      textSize(22);
+      text("Deleted!",width*0.46, height*0.51);
       textSize(18);
       
       if(mouseX>width*0.465 && mouseX<width*0.495 && mouseY>height*0.56 && mouseY<height*0.595)

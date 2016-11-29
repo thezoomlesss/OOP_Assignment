@@ -28,20 +28,6 @@ class Show_Records
   
   void delete_record()
   {
-    /*
-    String fileName = dataPath(file+".txt");
-    File f = new File(fileName);
-    if (f.exists()) 
-    {
-      
-      f.delete();
-    }
-    else
-    {
-      println("Not deleted");
-    }
-    */
-    
     try 
     {
       FileWriter output = new FileWriter(dataPath(file+".txt"),false); //the false will reset the new data
@@ -54,7 +40,10 @@ class Show_Records
       e.printStackTrace();
     }
     
-    
+   for(int index=0; index<r_l.size(); index++)
+   {
+     r_l.remove(index);
+   }
     
   }
   
