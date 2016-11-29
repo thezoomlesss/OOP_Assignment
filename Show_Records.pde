@@ -32,7 +32,8 @@ class Show_Records
     {
       FileWriter output = new FileWriter(dataPath(file+".txt"),false); //the false will reset the new data
       println("Deleted");
-      output.close();                    
+      output.close();
+      load_cond=false;                    
     }
     catch(IOException e) 
     {
