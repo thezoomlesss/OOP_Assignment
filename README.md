@@ -1,7 +1,8 @@
 # Year 2 semester 1 Object Oriented Programming Assignemnt
 Mohamad Zabad DT228/2
 
-	Here is the  [![IMAGE](http://img.youtube.com/vi/uZSBqmjwL0c/0.jpg)](https://www.youtube.com/watch?v=uZSBqmjwL0c"OOP Assignemnt 1") for the assignment.
+	Here is the  link to the video:
+[![Video](http://img.youtube.com/vi/uZSBqmjwL0c/0.jpg)](https://www.youtube.com/watch?v=uZSBqmjwL0c)
 	
 	
   My project is based on BioWare Studios' video game Mass Effect. It inspired me with the loadout selection screens that you had to go through.
