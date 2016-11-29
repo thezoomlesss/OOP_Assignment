@@ -118,13 +118,16 @@ class Armors
     textSize(20);
     if(pic_index3==1)
     {
-      text("Armor type: Light", 150,395);
-      text("Movement : Fast", 150,417);
+      text("Name: "+this.name, 150, 395);
+      text("Armor type: Heavy", 150,425);
+      text("Movement : Slow", 150,445);
+
     }
     else
     {
-      text("Armor type: Heavy", 150,395);
-      text("Movement : Slow", 150,417);
+      text("Name: "+this.name, 150, 395);
+      text("Armor type: Light", 150,425);
+      text("Movement : Fast", 150,445);
 
     }
   }// end display_armor()

@@ -74,7 +74,6 @@ class Profile
       File f = new File(dataPath(file+".txt")); 
       if(f.exists())
       {
-        println("The profile already exists");
         new_screen=3; // This will make it go through screen 2 then to screen 3
         screen=2; // This will run for 3 seconds and then it will go to screen 3
         
