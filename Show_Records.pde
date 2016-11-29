@@ -31,7 +31,6 @@ class Show_Records
     try 
     {
       FileWriter output = new FileWriter(dataPath(file+".txt"),false); //the false will reset the new data
-      println("Deleted");
       output.close();
       load_cond=false;                    
     }
@@ -41,9 +40,10 @@ class Show_Records
       e.printStackTrace();
     }
     
-   for(int index=0; index<r_l.size(); index++)
+   int size= r_l.size();
+   for(int index=size-1; index>=0; index--)
    {
-     r_l.remove(index);
+      r_l.remove(index);
    }
     
   }
