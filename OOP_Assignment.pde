@@ -1,27 +1,8 @@
 /*
       Year 2 Object Oriented Assignment
       Mohamad Zabad C15745405
-      
-      
-      To do list:
-        - Program state function to determine which screen to use DONE
-        - 3+ screens DONE
-        - Animation between swapping the screens  DONE
-        - Make everything modular DONE 
-        - Continous functions  DONE
-        - Loading animation    DONE
-        - Add border           DONE
-        - Add classes for weapons  DONE
-        - Add classes for armors  DONE
-        - Add a change color setting 
-        - Use lerp for the clock to make it smoother
-        - Create the file/open it and write the data/read the data ALMOST DONE
-        - Make the display table translate downwards
-        - Delete one or all records button
-        
-        - Add the weapons and armors images
-
-        Error when the array is full we can't press enter.  SOLVED
+     
+     I strongly advise using a screen with a resolution of 1366x 768 or higher 
 */
 
 
@@ -65,14 +46,17 @@ void setup()
 
 // Global declaration area
 float direction;
-float x=255,y=100,z=140;  // The colors from fill_clock and display_clock
-int condition=0;     // Variable used for the color of the loading screen. Leave it like this
+float x=255,y=100,z=140;     // The colors from fill_clock and display_clock
+int condition=0;             // Variable used for the color of the loading screen. Leave it like this
 float image_width, image_height;
 int x_coord=10, y_coord=10;
 boolean save_cond, load_cond=false, delete_cond;
 int x_coord_copy=x_coord+5, y_coord_copy=y_coord+5; 
 int index=0, screen=0, new_screen, index_key=0;
 String Profile, file;
+int pic_index=1, pic_index2=1; // for the weapons primary and secondary
+int pic_index3=1; // for the armor
+int pic_index4=1; // for the map
 
 
 // Object declaration area
@@ -94,10 +78,6 @@ Logo logo= new Logo();
 Maps map=new Maps(250,250);
 Armor armor=new Armor(250,250);  
 
-// test variables
-int pic_index=1, pic_index2=1; // for the weapons primary and secondary
-int pic_index3=1; // for the armor
-int pic_index4=1; // for the map
 void draw()
 {
   game_state(screen);
@@ -151,7 +131,7 @@ void game_state(int a)
       fill(255);
       stroke(255);
       textSize(20);
-      text("How did you end up here, buddy?", width * 0.38f, height*0.5f);// Add an error screen here
+      text("How did you end up here, buddy?", width * 0.38f, height*0.5f);
     }
   } // End switch
 }

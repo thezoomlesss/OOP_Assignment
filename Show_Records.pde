@@ -32,7 +32,7 @@ class Show_Records
     {
       FileWriter output = new FileWriter(dataPath(file+".txt"),false); //the false will reset the new data
       println("Deleted");
-      output.close();                    // DO A POP UP HERE
+      output.close();                    
     }
     catch(IOException e) 
     {
@@ -63,7 +63,7 @@ class Show_Records
   }
   
     
-  void display()   // NOW HERE WORKING ON THIS
+  void display()   
   {
     
     float x_crd= width*0.04, y_crd= height * 0.05, x_size=width-100, y_size=40;

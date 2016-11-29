@@ -25,7 +25,7 @@ class Clock
         h-=12;
       }
       
-      map_h=map(h,0,12,0, PI * 2);   // Not looking like a proper clock
+      map_h=map(h,0,12,0, PI * 2);   
       map_m=map(m,0,59,0 ,PI*2);
       map_s=map(s, 0, 59, 0, PI * 2);
       

@@ -184,7 +184,7 @@ class Weapon_list
       }
     }
     
-    this.pic= loadImage(dataPath("Image"+a+".png")); //this.size;
+    this.pic= loadImage(dataPath("Image"+a+".png")); 
     if(b=="Primary") this.type="Primary";
       else
       this.type="Secondary";

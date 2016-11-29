@@ -86,7 +86,6 @@ class Profile
         PrintWriter profile_txt;   
         profile_txt = createWriter(dataPath(file+".txt"));
         
-                    // print header to file
         
         profile_txt.close(); 
         new_screen=3; // This will make it go through screen 2 then to screen 3

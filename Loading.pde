@@ -11,7 +11,7 @@ class Loading
   {
     // Variables
     float position_x =  width * 0.5;
-    float position_y = height * 0.5;   // remember to test this
+    float position_y = height * 0.5;   
     
     
     
@@ -22,7 +22,7 @@ class Loading
     noFill();
     strokeWeight(5);
     fill_loading();
-    stroke(x, y, z);        // another test here
+    stroke(x, y, z);        
     
     arc(position_x, position_y, image_width, image_height, -direction- PI, -direction);
     arc(position_x, position_y, image_width+20, image_height+20, direction, direction+ PI );      
@@ -42,7 +42,7 @@ class Loading
     }
   }
   
-  void fill_loading()   // From pink to purple
+  void fill_loading()   
   {
     
      if( x > 0 && condition==0  )
